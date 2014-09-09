@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NCReport version="2.5.2" name="Untitled" type="report">
+    <options>
+        <encoding>utf8</encoding>
+        <language>00</language>
+        <langrole>0</langrole>
+        <orientation>landscape</orientation>
+        <pagesize width="297.000" height="210.000">A4</pagesize>
+        <topmargin>15</topmargin>
+        <bottommargin>15</bottommargin>
+        <leftmargin>20</leftmargin>
+        <rightmargin>20</rightmargin>
+        <fontname>Arial</fontname>
+        <fontsize>10</fontsize>
+        <backcolor>#ffffff</backcolor>
+        <columns>0</columns>
+        <columnspace>0</columnspace>
+        <zoneSpacing>0</zoneSpacing>
+    </options>
+    <datasources>
+        <datasource id="model" type="model" openRole="begin" source="static" modelID="model"></datasource>
+    </datasources>
+    <variables/>
+    <pageheader id="phead" height="30.420">
+        <text id="0" zValue="0" resource="static" posX="1.534" posY="0.000" width="76.691" height="13.804" useFont="true" fontName="Arial" fontSize="10" fontWeight="bold" forecolor="#000000">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial'; font-size:10pt; font-weight:600;&quot;&gt;FUNDAUC&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial'; font-size:10pt; font-weight:600;&quot;&gt;Sistema de Facturacion - Control de Estudios&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial'; font-size:10pt; font-weight:600;&quot;&gt;RESUMEN DE INSCRITOS Y PREINSCRITOS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</text>
+        <label id="1" zValue="1" resource="static" posX="1.534" posY="24.541" width="134.976" height="4.857" fontName="Arial" fontSize="10" fontWeight="bold" alignment="1" forecolor="#000000">DIPLOMADO</label>
+        <label id="2" zValue="2" resource="static" posX="138.043" posY="24.541" width="18.406" height="4.857" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">MINIMO</label>
+        <label id="3" zValue="3" resource="static" posX="157.983" posY="24.541" width="26.075" height="4.857" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">PREINSCRITOS</label>
+        <label id="4" zValue="4" resource="static" posX="185.592" posY="24.541" width="21.473" height="4.857" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">INSCRITOS</label>
+        <label id="5" zValue="5" resource="static" posX="208.599" posY="24.541" width="18.406" height="4.857" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">TOTAL</label>
+        <label id="6" zValue="6" resource="static" posX="228.539" posY="24.541" width="18.406" height="4.857" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">RESTAN</label>
+    </pageheader>
+    <pagefooter id="pfoot" height="10.000"/>
+    <details>
+        <detail id="Detail1" height="5.624" datasource="model" startsOnNewPage="false">
+            <items>
+                <field id="0" zValue="0" resource="static" posX="1.534" posY="0.000" width="134.976" height="4.601" fontName="Arial" fontSize="10" alignment="1" forecolor="#000000" type="txt" ftype="ds" arg="">0</field>
+                <field id="1" zValue="1" resource="static" posX="138.043" posY="0.000" width="18.406" height="4.857" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">1</field>
+                <field id="2" zValue="2" resource="static" posX="157.983" posY="0.000" width="26.075" height="4.857" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">2</field>
+                <field id="3" zValue="3" resource="static" posX="185.592" posY="0.000" width="21.473" height="4.857" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">3</field>
+                <field id="4" zValue="4" resource="static" posX="208.599" posY="0.000" width="17.895" height="4.857" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">4</field>
+                <field id="5" zValue="5" resource="static" posX="228.539" posY="0.000" width="18.406" height="4.857" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">5</field>
+            </items>
+        </detail>
+    </details>
+</NCReport>

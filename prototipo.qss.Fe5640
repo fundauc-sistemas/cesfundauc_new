@@ -1,0 +1,32 @@
+QWidget
+{
+    font: 10pt "Gill Sans MT";
+    background-color: rgb(255, 255, 255);
+
+}
+
+QDialog
+{
+    background-color: rgb(255, 255, 255);
+    font: 10pt "Gill Sans MT";
+}
+
+QLineEdit
+{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(131, 130, 129);
+    border-radius: 3px;
+}
+
+QTableWidget
+{
+    font: 9pt "Gill Sans MT";
+    border: 1px solid rgb(131, 130, 129);
+    border-radius: 3px;
+}
+
+QPushButton
+{
+    border: 1px solid rgb(131, 130, 129);
+    min-width: 80px;
+}

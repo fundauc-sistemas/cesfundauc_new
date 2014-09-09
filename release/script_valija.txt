@@ -1,0 +1,1 @@
+query="where dc_fecemi between to_date('01-01-2013','dd-MM-yyyy') and to_date('31-01-2013','dd-MM-yyyy')"

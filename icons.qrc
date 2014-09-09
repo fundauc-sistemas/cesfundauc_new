@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>iconos/Add.png</file>
+        <file>iconos/Back.png</file>
+        <file>iconos/Delete.png</file>
+        <file>iconos/Load.png</file>
+        <file>iconos/Modify.png</file>
+        <file>iconos/Print.png</file>
+        <file>iconos/Save.png</file>
+        <file>iconos/Search.png</file>
+        <file>iconos/fundauc.png</file>
+        <file>iconos/fundauc2.png</file>
+        <file>iconos/esfera48.png</file>
+        <file>prototipo.qss</file>
+    </qresource>
+</RCC>

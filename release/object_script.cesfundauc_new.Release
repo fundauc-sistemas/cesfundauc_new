@@ -1,0 +1,12 @@
+INPUT(
+./release\main.o
+./release\procesos_ces.o
+./release\procesos_caja.o
+./release\procesos_admin.o
+./release\interfaz.o
+./release\moc_procesos_ces.o
+./release\moc_procesos_caja.o
+./release\moc_procesos_admin.o
+./release\moc_interfaz.o
+./release\qrc_icons.o
+);

@@ -1,0 +1,1 @@
+C:\oracle\ora92\bin\exp.exe ces/fundauc@cesdata parfile=script.txt

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NCReport version="2.5.3" name="Untitled" type="report">
+    <options>
+        <encoding>utf8</encoding>
+        <language>00</language>
+        <langrole>0</langrole>
+        <orientation>portrait</orientation>
+        <pagesize width="300.000" height="279.000">CUSTOM</pagesize>
+        <topmargin>0</topmargin>
+        <bottommargin>140</bottommargin>
+        <leftmargin>10</leftmargin>
+        <rightmargin>0</rightmargin>
+        <fontname>MS Sans Serif</fontname>
+        <fontsize>10</fontsize>
+        <backcolor>#ffffff</backcolor>
+        <columns>0</columns>
+        <columnspace>0</columnspace>
+        <zoneSpacing>0</zoneSpacing>
+        <doublePass>true</doublePass>
+    </options>
+    <datasources>
+        <datasource id="model1" type="model" openRole="begin" source="static" modelID="model1"></datasource>
+        <datasource id="model2" type="model" openRole="begin" source="static" modelID="model2"></datasource>
+    </datasources>
+    <variables/>
+    <pageheader id="phead" height="43.000">
+        <line id="0" zValue="0" resource="static" fromX="18.406" fromY="41.413" toX="262.283" toY="41.413" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <label id="1" zValue="1" resource="static" posX="208.599" posY="35.278" width="26.075" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="4" forecolor="#000000">Precio</label>
+        <label id="2" zValue="2" resource="static" posX="236.208" posY="35.278" width="26.075" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="4" forecolor="#000000">Total Bs.</label>
+        <label id="3" zValue="3" resource="static" posX="44.481" posY="35.278" width="139.577" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="1" forecolor="#000000">Descripción</label>
+        <label id="4" zValue="4" resource="static" posX="185.592" posY="35.278" width="21.473" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="4" forecolor="#000000">Cantidad</label>
+        <label id="5" zValue="5" resource="static" posX="1.534" posY="12.271" width="46.014" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="1" forecolor="#000000">Razon Social/Nombre:</label>
+        <label id="6" zValue="6" resource="static" posX="1.534" posY="18.406" width="23.007" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="1" forecolor="#000000">Dirección:</label>
+        <label id="7" zValue="7" resource="static" posX="1.534" posY="26.075" width="47.548" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="1" forecolor="#000000">Nombre del Estudiante:</label>
+        <label id="8" zValue="8" resource="static" posX="1.534" posY="4.601" width="38.345" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="1" forecolor="#000000">Fecha de Emisión:</label>
+        <field id="9" zValue="9" resource="static" posX="41.413" posY="4.601" width="35.278" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">fecemi</field>
+        <field id="10" zValue="10" resource="static" posX="49.082" posY="12.271" width="122.705" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">nombre</field>
+        <field id="11" zValue="11" resource="static" posX="26.075" posY="18.406" width="145.713" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">direccion</field>
+        <field id="12" zValue="12" resource="static" posX="50.616" posY="26.075" width="121.171" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">nombre2</field>
+        <label id="13" zValue="13" resource="static" posX="174.855" posY="12.271" width="26.075" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="1" forecolor="#000000">Cedula/RIF:</label>
+        <field id="14" zValue="14" resource="static" posX="202.464" posY="12.271" width="29.143" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">cedula</field>
+        <label id="15" zValue="15" resource="static" posX="234.674" posY="12.271" width="21.473" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="1" forecolor="#000000">Telefono:</label>
+        <field id="16" zValue="16" resource="static" posX="257.681" posY="12.271" width="30.676" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">telf</field>
+        <field id="17" zValue="17" resource="static" posX="202.464" posY="18.406" width="29.143" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">cedula1</field>
+        <label id="18" zValue="18" resource="static" posX="174.855" posY="18.406" width="26.075" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="1" forecolor="#000000">Cedula Est:</label>
+        <label id="19" zValue="19" resource="static" posX="234.674" posY="18.406" width="21.473" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="1" forecolor="#000000">Matrícula:</label>
+        <field id="20" zValue="20" resource="static" posX="257.681" posY="18.406" width="30.676" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">matricula</field>
+        <label id="21" zValue="21" resource="static" posX="174.855" posY="26.075" width="23.007" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="1" forecolor="#000000">Modalidad:</label>
+        <field id="22" zValue="22" resource="static" posX="199.396" posY="26.075" width="58.285" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">horario</field>
+        <label id="23" zValue="23" resource="static" posX="18.406" posY="35.278" width="24.541" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="1" forecolor="#000000">Código</label>
+        <field id="24" zValue="24" resource="static" posX="191.727" posY="4.601" width="36.812" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">curso</field>
+        <field id="25" zValue="25" resource="static" posX="144.179" posY="4.601" width="27.609" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">nfactura</field>
+        <label id="26" zValue="26" resource="static" posX="116.570" posY="4.601" width="26.075" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="1" forecolor="#000000">Factura No:</label>
+        <label id="27" zValue="27" resource="static" posX="174.855" posY="4.601" width="15.338" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="1" forecolor="#000000">Curso:</label>
+        <label id="28" zValue="28" resource="static" posX="234.674" posY="4.601" width="23.007" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="1" forecolor="#000000">Condición:</label>
+        <field id="29" zValue="29" resource="static" posX="259.215" posY="4.601" width="32.210" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">condicion</field>
+    </pageheader>
+    <pagefooter id="pfoot" height="29.909">
+        <line id="0" zValue="0" resource="static" fromX="21.473" fromY="18.406" toX="65.954" toY="18.406" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="1" zValue="1" resource="static" fromX="92.029" fromY="18.406" toX="136.510" toY="18.406" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <field id="2" zValue="2" resource="static" posX="233.140" posY="7.669" width="24.541" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="2" forecolor="#000000" type="txt" ftype="par" arg="">iva</field>
+        <field id="3" zValue="3" resource="static" posX="233.140" posY="13.804" width="24.541" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="2" forecolor="#000000" type="txt" ftype="par" arg="">total</field>
+        <field id="4" zValue="4" resource="static" posX="233.140" posY="1.534" width="24.541" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="2" forecolor="#000000" type="txt" ftype="par" arg="">subtotal</field>
+        <label id="5" zValue="5" resource="static" posX="205.531" posY="1.534" width="26.075" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="2" forecolor="#000000">Subtotal:  </label>
+        <label id="6" zValue="6" resource="static" posX="21.473" posY="19.940" width="44.481" height="4.857" fontName="MS Sans Serif" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">Firma del Funcionario</label>
+        <label id="7" zValue="7" resource="static" posX="193.261" posY="13.804" width="38.345" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="2" forecolor="#000000">Total a cancelar:  </label>
+        <label id="8" zValue="8" resource="static" posX="213.200" posY="7.669" width="18.406" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="2" forecolor="#000000">IVA:  </label>
+        <label id="9" zValue="9" resource="static" posX="96.630" posY="19.940" width="33.744" height="4.857" fontName="MS Sans Serif" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">Firma del Cliente</label>
+        <field id="10" zValue="10" resource="static" posX="21.473" posY="24.541" width="44.481" height="4.601" fontName="MS Sans Serif" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="par" arg="">usuario</field>
+    </pagefooter>
+    <details>
+        <detail id="Detail1" height="6.000" datasource="model1" startsOnNewPage="false">
+            <items>
+                <field id="0" zValue="0" resource="static" posX="44.481" posY="0.000" width="139.577" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="ds" arg="">1</field>
+                <field id="1" zValue="1" resource="static" posX="185.592" posY="0.000" width="21.473" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="ds" arg="">2</field>
+                <field id="2" zValue="2" resource="static" posX="208.599" posY="0.000" width="26.075" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="num" ftype="ds" arg="">3</field>
+                <field id="3" zValue="3" resource="static" posX="236.208" posY="0.000" width="26.075" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="num" ftype="ds" arg="">4</field>
+                <field id="4" zValue="4" resource="static" posX="18.406" posY="0.000" width="24.541" height="4.601" fontName="MS Sans Serif" fontSize="12" alignment="1" forecolor="#000000" type="txt" ftype="ds" arg="">0</field>
+            </items>
+        </detail>
+        <detail id="Detail2" height="5.624" datasource="model2" startsOnNewPage="false">
+            <items>
+                <field id="0" zValue="0" resource="static" posX="260.749" posY="0.000" width="3.068" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">5</field>
+                <field id="1" zValue="1" resource="static" posX="231.606" posY="0.000" width="26.075" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">4</field>
+                <field id="2" zValue="2" resource="static" posX="23.007" posY="0.000" width="26.075" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">0</field>
+                <field id="3" zValue="6" resource="static" posX="52.150" posY="0.000" width="47.548" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">1</field>
+                <field id="4" zValue="7" resource="static" posX="102.766" posY="0.000" width="79.758" height="4.857" fontName="MS Sans Serif" fontSize="12" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">2</field>
+                <field id="5" zValue="9" resource="static" posX="185.592" posY="0.000" width="42.947" height="4.601" fontName="MS Sans Serif" fontSize="12" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">3</field>
+            </items>
+            <groups>
+                <group id="Group0" groupExp="5" resetVariables="" reprintHeader="false" startsOnNewPage="false">
+                    <groupheader height="10.225">
+                        <line id="0" zValue="0" resource="static" fromX="23.007" fromY="9.203" toX="257.681" toY="9.203" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+                        <label id="1" zValue="1" resource="static" posX="231.606" posY="3.068" width="26.075" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="4" forecolor="#000000">Monto</label>
+                        <label id="2" zValue="2" resource="static" posX="23.007" posY="3.068" width="26.075" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="4" forecolor="#000000">Fecha</label>
+                        <label id="3" zValue="6" resource="static" posX="52.150" posY="3.068" width="47.548" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="4" forecolor="#000000">Forma de Pago</label>
+                        <label id="4" zValue="7" resource="static" posX="102.766" posY="3.068" width="79.758" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="4" forecolor="#000000">Banco</label>
+                        <label id="5" zValue="8" resource="static" posX="185.592" posY="3.068" width="42.947" height="4.857" fontName="MS Sans Serif" fontSize="12" fontWeight="bold" alignment="4" forecolor="#000000">Número</label>
+                    </groupheader>
+                    <groupfooter height="0.000"/>
+                </group>
+            </groups>
+        </detail>
+    </details>
+</NCReport>

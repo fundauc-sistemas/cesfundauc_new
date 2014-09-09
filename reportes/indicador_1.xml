@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NCReport version="2.5.3" name="Untitled" type="report">
+    <options>
+        <encoding>utf8</encoding>
+        <language>00</language>
+        <langrole>0</langrole>
+        <orientation>portrait</orientation>
+        <pagesize width="216.000" height="279.000">LETTER</pagesize>
+        <topmargin>15</topmargin>
+        <bottommargin>15</bottommargin>
+        <leftmargin>20</leftmargin>
+        <rightmargin>20</rightmargin>
+        <fontname>Arial</fontname>
+        <fontsize>10</fontsize>
+        <backcolor>#ffffff</backcolor>
+        <columns>0</columns>
+        <columnspace>0</columnspace>
+        <zoneSpacing>0</zoneSpacing>
+    </options>
+    <datasources>
+        <datasource id="model" type="model" openRole="begin" source="static" modelID="model"></datasource>
+    </datasources>
+    <variables/>
+    <pageheader id="phead" height="29.140">
+        <text id="0" zValue="1" resource="static" posX="1.534" posY="0.000" width="173.321" height="13.804" useFont="true" fontName="Arial" fontSize="10" fontWeight="bold" forecolor="#000000">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial'; font-size:10pt; font-weight:600;&quot;&gt;FUNDAUC&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial'; font-size:10pt; font-weight:600;&quot;&gt;Sistema de Facturacion - Control de Estudios&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial'; font-size:10pt; font-weight:600;&quot;&gt;INSCRITOS EN EL NIVEL 1 POR PERIODO Y MODALIDAD&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</text>
+    </pageheader>
+    <pagefooter id="pfoot" height="0.000"/>
+    <details>
+        <detail id="Detail1" height="7.925" datasource="model" startsOnNewPage="false">
+            <items>
+                <field id="11" zValue="14" resource="static" posX="21.473" posY="1.534" width="7.669" height="4.601" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">1</field>
+                <field id="12" zValue="16" resource="static" posX="30.676" posY="1.534" width="7.669" height="4.601" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">2</field>
+                <field id="0" zValue="18" resource="static" posX="39.879" posY="1.534" width="7.669" height="4.601" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">3</field>
+                <field id="1" zValue="20" resource="static" posX="49.082" posY="1.534" width="7.669" height="4.601" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">4</field>
+                <field id="2" zValue="22" resource="static" posX="58.285" posY="1.534" width="7.669" height="4.601" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">5</field>
+                <field id="3" zValue="24" resource="static" posX="67.488" posY="1.534" width="7.669" height="4.601" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">6</field>
+                <field id="4" zValue="26" resource="static" posX="76.691" posY="1.534" width="7.669" height="4.601" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">7</field>
+                <field id="5" zValue="28" resource="static" posX="85.894" posY="1.534" width="7.669" height="4.601" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">8</field>
+                <field id="6" zValue="30" resource="static" posX="95.097" posY="1.534" width="7.669" height="4.601" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">9</field>
+                <field id="7" zValue="32" resource="static" posX="104.300" posY="1.534" width="7.669" height="4.601" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">10</field>
+                <field id="8" zValue="34" resource="static" posX="113.502" posY="1.534" width="7.669" height="4.601" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">11</field>
+                <field id="9" zValue="36" resource="static" posX="122.705" posY="1.534" width="7.669" height="4.601" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">12</field>
+                <field id="10" zValue="38" resource="static" posX="131.908" posY="1.534" width="7.669" height="4.601" fontName="Arial" fontSize="10" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">13</field>
+            </items>
+            <groups>
+                <group id="Group0" groupExp="0" resetVariables="" reprintHeader="false" startsOnNewPage="false">
+                    <groupheader height="8.000">
+                        <label id="0" zValue="0" resource="static" posX="0.000" posY="1.534" width="16.872" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="1" forecolor="#000000">Metodo:</label>
+                        <field id="1" zValue="1" resource="static" posX="18.406" posY="1.534" width="154.915" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="1" forecolor="#000000" type="txt" ftype="ds" arg="">0</field>
+                    </groupheader>
+                    <groupfooter height="0.000"/>
+                </group>
+                <group id="Group1" groupExp="14" resetVariables="" reprintHeader="false" startsOnNewPage="false">
+                    <groupheader height="16.000">
+                        <label id="0" zValue="0" resource="static" posX="0.000" posY="1.534" width="19.940" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="1" forecolor="#000000">Modalidad:</label>
+                        <label id="1" zValue="1" resource="static" posX="0.000" posY="9.203" width="19.940" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="1" forecolor="#000000">Periodos</label>
+                        <label id="2" zValue="2" resource="static" posX="58.285" posY="9.203" width="7.669" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">5</label>
+                        <label id="3" zValue="3" resource="static" posX="67.488" posY="9.203" width="7.669" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">6</label>
+                        <label id="4" zValue="4" resource="static" posX="76.691" posY="9.203" width="7.669" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">7</label>
+                        <label id="5" zValue="5" resource="static" posX="85.894" posY="9.203" width="7.669" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">8</label>
+                        <label id="6" zValue="6" resource="static" posX="95.097" posY="9.203" width="7.669" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">9</label>
+                        <label id="7" zValue="7" resource="static" posX="104.300" posY="9.203" width="7.669" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">10</label>
+                        <label id="8" zValue="8" resource="static" posX="113.502" posY="9.203" width="7.669" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">11</label>
+                        <label id="9" zValue="9" resource="static" posX="122.705" posY="9.203" width="7.669" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">12</label>
+                        <label id="10" zValue="10" resource="static" posX="131.908" posY="9.203" width="7.669" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">13</label>
+                        <label id="11" zValue="11" resource="static" posX="21.473" posY="9.203" width="7.669" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">1</label>
+                        <label id="12" zValue="12" resource="static" posX="30.676" posY="9.203" width="7.669" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">2</label>
+                        <label id="13" zValue="13" resource="static" posX="39.879" posY="9.203" width="7.669" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">3</label>
+                        <label id="14" zValue="14" resource="static" posX="49.082" posY="9.203" width="7.669" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="4" forecolor="#000000">4</label>
+                        <field id="15" zValue="15" resource="static" posX="21.473" posY="1.534" width="151.848" height="4.601" fontName="Arial" fontSize="10" fontWeight="bold" alignment="1" forecolor="#000000" type="txt" ftype="ds" arg="">14</field>
+                    </groupheader>
+                    <groupfooter height="0.000"/>
+                </group>
+            </groups>
+        </detail>
+    </details>
+</NCReport>

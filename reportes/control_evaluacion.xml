@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NCReport version="2.5.3" name="Untitled" type="report">
+    <options>
+        <encoding>utf8</encoding>
+        <language>00</language>
+        <langrole>0</langrole>
+        <orientation>portrait</orientation>
+        <pagesize width="359.000" height="216.000">CUSTOM</pagesize>
+        <topmargin>10</topmargin>
+        <bottommargin>5</bottommargin>
+        <leftmargin>5</leftmargin>
+        <rightmargin>10</rightmargin>
+        <fontname>Arial</fontname>
+        <fontsize>10</fontsize>
+        <backcolor>#ffffff</backcolor>
+        <columns>0</columns>
+        <columnspace>0</columnspace>
+        <zoneSpacing>0</zoneSpacing>
+    </options>
+    <datasources>
+        <datasource id="model" type="model" openRole="begin" source="static" modelID="model"></datasource>
+    </datasources>
+    <variables/>
+    <pageheader id="phead" height="63.142">
+        <label id="0" zValue="0" resource="static" posX="6.135" posY="18.406" width="17.895" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">METODO:</label>
+        <label id="1" zValue="1" resource="static" posX="6.135" posY="24.541" width="17.895" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">NIVEL:</label>
+        <label id="2" zValue="2" resource="static" posX="6.135" posY="30.676" width="17.895" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">AULA:</label>
+        <label id="3" zValue="3" resource="static" posX="6.135" posY="36.812" width="17.895" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">PERIODO:</label>
+        <label id="4" zValue="4" resource="static" posX="188.659" posY="18.406" width="35.278" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">Alumnos Aprobados:</label>
+        <field id="7" zValue="7" resource="static" posX="125.773" posY="18.406" width="53.684" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">idioma</field>
+        <field id="8" zValue="8" resource="static" posX="125.773" posY="24.541" width="53.684" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">horario</field>
+        <field id="9" zValue="9" resource="static" posX="125.773" posY="30.676" width="53.684" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">modalidad</field>
+        <field id="10" zValue="10" resource="static" posX="225.471" posY="18.406" width="26.075" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">aprob</field>
+        <field id="11" zValue="11" resource="static" posX="225.471" posY="24.541" width="26.075" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">no_aprob</field>
+        <label id="12" zValue="12" resource="static" posX="260.749" posY="18.406" width="7.669" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">E1:</label>
+        <label id="13" zValue="13" resource="static" posX="260.749" posY="24.541" width="7.669" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">E2:</label>
+        <label id="14" zValue="14" resource="static" posX="260.749" posY="30.676" width="7.669" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">E3:</label>
+        <label id="15" zValue="15" resource="static" posX="260.749" posY="36.812" width="7.669" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">E4:</label>
+        <field id="17" zValue="17" resource="static" posX="269.952" posY="24.541" width="69.022" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">eval2</field>
+        <field id="18" zValue="18" resource="static" posX="269.952" posY="30.676" width="69.022" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">eval3</field>
+        <field id="19" zValue="19" resource="static" posX="269.952" posY="36.812" width="69.022" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">eval4</field>
+        <text id="20" zValue="20" resource="static" posX="1.534" posY="1.534" width="76.691" height="13.804" useFont="true" fontName="Arial" fontSize="10" fontWeight="bold" forecolor="#000000">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial'; font-size:10pt; font-weight:600;&quot;&gt;FUNDAUC&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial'; font-size:10pt; font-weight:600;&quot;&gt;Sistema de Facturacion - Control de Estudios&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial'; font-size:10pt; font-weight:600;&quot;&gt;CONTROL DE EVALUACION&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</text>
+        <label id="21" zValue="21" resource="static" posX="0.000" posY="53.684" width="6.135" height="9.203" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">
+Nº</label>
+        <label id="22" zValue="22" resource="static" posX="6.135" posY="53.684" width="87.428" height="9.203" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">
+NOMBRE Y APELLIDO</label>
+        <label id="23" zValue="23" resource="static" posX="93.563" posY="53.684" width="19.940" height="9.203" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">
+CEDULA</label>
+        <label id="24" zValue="24" resource="static" posX="113.502" posY="53.684" width="19.940" height="9.203" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">
+FACTURA</label>
+        <label id="25" zValue="25" resource="static" posX="153.382" posY="58.285" width="9.203" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">AB</label>
+        <label id="26" zValue="26" resource="static" posX="162.585" posY="58.285" width="9.203" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">10%</label>
+        <label id="27" zValue="27" resource="static" posX="171.787" posY="58.285" width="9.203" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">E1</label>
+        <label id="28" zValue="28" resource="static" posX="180.990" posY="58.285" width="9.203" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">E2</label>
+        <label id="29" zValue="29" resource="static" posX="190.193" posY="58.285" width="9.203" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">E3</label>
+        <label id="30" zValue="30" resource="static" posX="199.396" posY="58.285" width="9.203" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">E4</label>
+        <label id="31" zValue="31" resource="static" posX="208.599" posY="58.285" width="9.203" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">EV</label>
+        <label id="32" zValue="32" resource="static" posX="217.802" posY="58.285" width="9.203" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">90%</label>
+        <label id="33" zValue="33" resource="static" posX="153.382" posY="53.684" width="73.623" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">EVALUACION CONTINUA</label>
+        <label id="34" zValue="34" resource="static" posX="227.005" posY="53.684" width="9.203" height="9.203" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">
+EC</label>
+        <label id="35" zValue="35" resource="static" posX="245.411" posY="58.285" width="9.203" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">DF</label>
+        <label id="36" zValue="36" resource="static" posX="254.614" posY="58.285" width="9.203" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">MK</label>
+        <label id="37" zValue="37" resource="static" posX="263.816" posY="58.285" width="9.203" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">FN</label>
+        <label id="38" zValue="38" resource="static" posX="273.019" posY="58.285" width="9.203" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">DF</label>
+        <label id="39" zValue="39" resource="static" posX="282.222" posY="58.285" width="9.203" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">MK</label>
+        <label id="40" zValue="40" resource="static" posX="236.208" posY="53.684" width="27.609" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">MID TERM</label>
+        <label id="41" zValue="41" resource="static" posX="263.816" posY="53.684" width="27.609" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">FINAL</label>
+        <label id="42" zValue="42" resource="static" posX="291.425" posY="53.684" width="13.804" height="9.203" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">
+ORAL</label>
+        <label id="43" zValue="43" resource="static" posX="305.229" posY="53.684" width="19.940" height="9.203" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">PROMEDIO
+FINAL</label>
+        <label id="44" zValue="44" resource="static" posX="325.169" posY="53.684" width="17.895" height="9.203" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">
+OBSERV.</label>
+        <line id="45" zValue="45" resource="static" fromX="0.000" fromY="62.886" toX="343.575" toY="62.886" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <label id="46" zValue="46" resource="static" posX="104.300" posY="18.406" width="19.940" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="2" forecolor="#000000">IDIOMA:</label>
+        <label id="47" zValue="47" resource="static" posX="104.300" posY="30.676" width="19.940" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="2" forecolor="#000000">MODALIDAD:</label>
+        <label id="48" zValue="48" resource="static" posX="104.300" posY="24.541" width="19.940" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="2" forecolor="#000000">HORARIO:</label>
+        <label id="49" zValue="49" resource="static" posX="188.659" posY="24.541" width="35.278" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">Alumnos No Aprobados:</label>
+        <field id="50" zValue="50" resource="static" posX="26.075" posY="30.676" width="69.022" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">aula</field>
+        <label id="51" zValue="51" resource="static" posX="35.278" posY="36.812" width="12.271" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">Desde:</label>
+        <field id="52" zValue="52" resource="static" posX="26.075" posY="36.812" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">periodo</field>
+        <field id="53" zValue="53" resource="static" posX="49.082" posY="36.812" width="18.406" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">fecini</field>
+        <label id="54" zValue="54" resource="static" posX="67.488" posY="36.812" width="10.737" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">Hasta:</label>
+        <field id="55" zValue="55" resource="static" posX="79.758" posY="36.812" width="18.406" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">fecfin</field>
+        <label id="56" zValue="56" resource="static" posX="188.659" posY="30.676" width="35.278" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">Repitientes:</label>
+        <label id="57" zValue="57" resource="static" posX="236.208" posY="58.285" width="9.203" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">MT</label>
+        <label id="58" zValue="58" resource="static" posX="133.442" posY="53.684" width="19.940" height="9.203" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">
+TELEFONO</label>
+        <label id="59" zValue="59" resource="static" posX="188.659" posY="36.812" width="35.278" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">No Cursaron:</label>
+        <label id="60" zValue="60" resource="static" posX="188.659" posY="42.947" width="35.278" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">Ingreso Por Ubicación:</label>
+        <field id="61" zValue="61" resource="static" posX="225.471" posY="30.676" width="26.075" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">repitientes</field>
+        <field id="62" zValue="62" resource="static" posX="225.471" posY="36.812" width="26.075" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">nocurso</field>
+        <field id="63" zValue="63" resource="static" posX="225.471" posY="42.947" width="26.075" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">ubicados</field>
+        <field id="64" zValue="64" resource="static" posX="251.546" posY="10.737" width="87.428" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">profesor</field>
+        <label id="65" zValue="65" resource="static" posX="188.659" posY="10.737" width="61.353" height="4.857" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">NOMBRE Y APELLIDO DEL PROFESOR:</label>
+        <field id="5" zValue="72" resource="static" posX="26.075" posY="24.541" width="69.022" height="4.601" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">nivel</field>
+        <field id="6" zValue="74" resource="static" posX="26.075" posY="18.406" width="69.022" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">metodo</field>
+        <field id="16" zValue="75" resource="static" posX="269.952" posY="18.406" width="69.022" height="4.857" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">eval1</field>
+    </pageheader>
+    <pagefooter id="pfoot" height="10.000"/>
+    <details>
+        <detail id="Detail1" height="5.000" datasource="model" startsOnNewPage="false">
+            <items>
+                <field id="0" zValue="0" resource="static" posX="0.000" posY="0.000" width="6.135" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">0</field>
+                <field id="1" zValue="1" resource="static" posX="6.135" posY="0.000" width="87.428" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">1</field>
+                <field id="2" zValue="2" resource="static" posX="93.563" posY="0.000" width="19.940" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">2</field>
+                <field id="3" zValue="3" resource="static" posX="113.502" posY="0.000" width="19.940" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">3</field>
+                <field id="4" zValue="4" resource="static" posX="133.442" posY="0.000" width="19.940" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">4</field>
+                <field id="5" zValue="5" resource="static" posX="153.382" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">5</field>
+                <field id="6" zValue="6" resource="static" posX="162.585" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">6</field>
+                <field id="7" zValue="7" resource="static" posX="171.787" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">7</field>
+                <field id="8" zValue="8" resource="static" posX="180.990" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">8</field>
+                <field id="9" zValue="9" resource="static" posX="190.193" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">9</field>
+                <field id="10" zValue="10" resource="static" posX="199.396" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">10</field>
+                <field id="11" zValue="11" resource="static" posX="208.599" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">11</field>
+                <field id="12" zValue="12" resource="static" posX="217.802" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">12</field>
+                <field id="13" zValue="13" resource="static" posX="227.005" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">13</field>
+                <field id="14" zValue="14" resource="static" posX="236.208" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">14</field>
+                <field id="15" zValue="15" resource="static" posX="245.411" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">15</field>
+                <field id="16" zValue="16" resource="static" posX="254.614" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">16</field>
+                <field id="17" zValue="17" resource="static" posX="263.816" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">17</field>
+                <field id="18" zValue="18" resource="static" posX="273.019" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">18</field>
+                <field id="19" zValue="19" resource="static" posX="282.222" posY="0.000" width="9.203" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">19</field>
+                <field id="20" zValue="20" resource="static" posX="291.425" posY="0.000" width="13.804" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">20</field>
+                <field id="21" zValue="21" resource="static" posX="305.229" posY="0.000" width="19.940" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">21</field>
+                <field id="22" zValue="22" resource="static" posX="325.169" posY="0.000" width="17.895" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">22</field>
+            </items>
+        </detail>
+    </details>
+</NCReport>

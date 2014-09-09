@@ -1,0 +1,63 @@
+QWidget
+{
+    font: 10pt "Gill Sans MT";
+    background-color: rgb(231, 231, 231);
+}
+
+QScrollArea
+{
+    background-color: rgb(131, 131, 131);
+}
+
+QLineEdit
+{
+    border: 1px solid rgb(131, 131, 131);
+    background-color: white;
+    border-radius: 3px;
+}
+
+QDialog
+{
+    background-color: rgb(231, 231, 231);
+    font: 10pt "Gill Sans MT";
+}
+
+QTableWidget
+{
+    font: 9pt "Gill Sans MT";
+    border: 1px solid rgb(131, 131, 131);
+    background-color: white;
+    border-radius: 3px;
+}
+
+QPushButton
+{
+    border: 1px solid rgb(131, 131, 131);
+    min-width: 80px;
+    min-height: 20px;
+}
+
+QMenu
+{
+    background-color: rgb(131, 131, 131);
+}
+
+QMenu::item
+{
+    background-color: transparent;
+}
+
+QMenu::item:selected
+{
+    background-color: rgb(00, 56, 147);
+}
+
+ QComboBox:editable
+ {
+     background: white;
+ }
+
+QComboBox QAbstractItemView
+{
+    selection-background-color: rgb(00, 56, 147);
+}

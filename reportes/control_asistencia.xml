@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NCReport version="2.5.3" name="Untitled" type="report">
+    <options>
+        <encoding>utf8</encoding>
+        <language>00</language>
+        <langrole>0</langrole>
+        <orientation>landscape</orientation>
+        <pagesize width="279.000" height="216.000">LETTER</pagesize>
+        <topmargin>15</topmargin>
+        <bottommargin>15</bottommargin>
+        <leftmargin>10</leftmargin>
+        <rightmargin>10</rightmargin>
+        <fontname>Arial</fontname>
+        <fontsize>10</fontsize>
+        <backcolor>#ffffff</backcolor>
+        <columns>0</columns>
+        <columnspace>0</columnspace>
+        <zoneSpacing>0</zoneSpacing>
+    </options>
+    <datasources>
+        <datasource id="model" type="model" openRole="begin" source="static" modelID="model"></datasource>
+    </datasources>
+    <variables/>
+    <pageheader id="phead" height="51.324">
+        <text id="0" zValue="0" resource="static" posX="0.000" posY="0.000" width="76.691" height="13.804" useFont="true" fontName="Arial" fontSize="10" fontWeight="bold" forecolor="#000000">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial'; font-size:10pt; font-weight:600;&quot;&gt;FUNDAUC&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial'; font-size:10pt; font-weight:600;&quot;&gt;Sistema de Facturacion - Control de Estudios&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial'; font-size:10pt; font-weight:600;&quot;&gt;CONTROL DE ASISTENCIA&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</text>
+        <label id="1" zValue="1" resource="static" posX="214.734" posY="46.014" width="21.473" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">FIRMA</label>
+        <label id="2" zValue="2" resource="static" posX="193.261" posY="46.014" width="21.473" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">FIRMA</label>
+        <label id="3" zValue="3" resource="static" posX="171.787" posY="46.014" width="21.473" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">FIRMA</label>
+        <label id="4" zValue="4" resource="static" posX="150.314" posY="46.014" width="21.473" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">FIRMA</label>
+        <label id="5" zValue="5" resource="static" posX="107.367" posY="46.014" width="21.473" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">FIRMA</label>
+        <label id="6" zValue="6" resource="static" posX="65.954" posY="46.014" width="19.940" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">CEDULA</label>
+        <label id="7" zValue="7" resource="static" posX="85.894" posY="46.014" width="21.473" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">FIRMA</label>
+        <label id="8" zValue="8" resource="static" posX="236.208" posY="46.014" width="21.473" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">FIRMA</label>
+        <label id="9" zValue="9" resource="static" posX="6.135" posY="46.014" width="59.819" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">NOMBRE Y APELLIDO</label>
+        <label id="10" zValue="10" resource="static" posX="214.734" posY="9.203" width="24.541" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">HORARIO</label>
+        <label id="11" zValue="11" resource="static" posX="164.118" posY="9.203" width="32.210" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">FIN PERIODO</label>
+        <label id="12" zValue="12" resource="static" posX="239.275" posY="9.203" width="18.406" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">AULA</label>
+        <label id="13" zValue="13" resource="static" posX="128.841" posY="46.014" width="21.473" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">FIRMA</label>
+        <label id="14" zValue="14" resource="static" posX="0.000" posY="46.014" width="6.135" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">Nº</label>
+        <label id="15" zValue="15" resource="static" posX="131.908" posY="9.203" width="32.210" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">INICIO PERIODO</label>
+        <line id="16" zValue="16" resource="static" fromX="0.000" fromY="50.616" toX="257.681" toY="50.616" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <rectangle id="17" zValue="17" resource="static" posX="85.894" posY="23.007" width="171.787" height="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100" fillColor="#000000" fillStyle="no"/>
+        <rectangle id="18" zValue="18" resource="static" posX="85.894" posY="29.143" width="171.787" height="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100" fillColor="#000000" fillStyle="no"/>
+        <rectangle id="19" zValue="19" resource="static" posX="85.894" posY="35.278" width="171.787" height="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100" fillColor="#000000" fillStyle="no"/>
+        <line id="20" zValue="20" resource="static" fromX="107.367" fromY="23.007" toX="107.367" toY="27.609" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="21" zValue="21" resource="static" fromX="128.841" fromY="23.007" toX="128.841" toY="27.609" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="22" zValue="22" resource="static" fromX="107.367" fromY="29.143" toX="107.367" toY="33.744" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="23" zValue="23" resource="static" fromX="107.367" fromY="35.278" toX="107.367" toY="39.879" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="24" zValue="24" resource="static" fromX="128.841" fromY="29.143" toX="128.841" toY="33.744" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="25" zValue="25" resource="static" fromX="128.841" fromY="35.278" toX="128.841" toY="39.879" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="26" zValue="26" resource="static" fromX="150.314" fromY="23.007" toX="150.314" toY="27.609" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="27" zValue="27" resource="static" fromX="150.314" fromY="29.143" toX="150.314" toY="33.744" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="28" zValue="28" resource="static" fromX="150.314" fromY="35.278" toX="150.314" toY="39.879" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="29" zValue="29" resource="static" fromX="171.787" fromY="35.278" toX="171.787" toY="39.879" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="30" zValue="30" resource="static" fromX="171.787" fromY="29.143" toX="171.787" toY="33.744" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="31" zValue="31" resource="static" fromX="171.787" fromY="23.007" toX="171.787" toY="27.609" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="32" zValue="32" resource="static" fromX="193.261" fromY="23.007" toX="193.261" toY="27.609" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="33" zValue="33" resource="static" fromX="193.261" fromY="29.143" toX="193.261" toY="33.744" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="34" zValue="34" resource="static" fromX="193.261" fromY="35.278" toX="193.261" toY="39.879" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="35" zValue="35" resource="static" fromX="214.734" fromY="23.007" toX="214.734" toY="27.609" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="36" zValue="36" resource="static" fromX="214.734" fromY="29.143" toX="214.734" toY="33.744" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="37" zValue="37" resource="static" fromX="214.734" fromY="35.278" toX="214.734" toY="39.879" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="38" zValue="38" resource="static" fromX="236.208" fromY="23.007" toX="236.208" toY="27.609" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="39" zValue="39" resource="static" fromX="236.208" fromY="29.143" toX="236.208" toY="33.744" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="40" zValue="40" resource="static" fromX="236.208" fromY="35.278" toX="236.208" toY="39.879" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <label id="41" zValue="41" resource="static" posX="50.616" posY="29.143" width="35.278" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">Unidades Impartidas</label>
+        <label id="43" zValue="43" resource="static" posX="196.329" posY="9.203" width="18.406" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">NIVEL</label>
+        <label id="44" zValue="44" resource="static" posX="62.886" posY="35.278" width="23.007" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">Hora Entrada</label>
+        <label id="45" zValue="45" resource="static" posX="72.089" posY="23.007" width="13.804" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">Fecha</label>
+        <field id="46" zValue="46" resource="static" posX="131.908" posY="15.338" width="32.210" height="4.601" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="par" arg="">fecini</field>
+        <field id="47" zValue="47" resource="static" posX="164.118" posY="15.338" width="32.210" height="4.601" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="par" arg="">fecfin</field>
+        <field id="48" zValue="48" resource="static" posX="72.089" posY="15.338" width="59.819" height="4.601" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="par" arg="">profesor</field>
+        <field id="49" zValue="49" resource="static" posX="196.329" posY="15.338" width="18.406" height="4.601" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="par" arg="">nivel</field>
+        <field id="50" zValue="50" resource="static" posX="214.734" posY="15.338" width="24.541" height="4.601" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="par" arg="">horario</field>
+        <field id="51" zValue="51" resource="static" posX="239.275" posY="15.338" width="18.406" height="4.601" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="par" arg="">aula</field>
+        <label id="42" zValue="52" resource="static" posX="72.089" posY="9.203" width="59.819" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">NOMBRE DEL PROFESOR</label>
+        <label id="53" zValue="63" resource="static" posX="82.826" posY="3.068" width="16.872" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="1" forecolor="#000000">METODO:</label>
+        <field id="58" zValue="64" resource="static" posX="101.232" posY="3.068" width="92.029" height="4.601" fontName="Arial" fontSize="9" alignment="1" forecolor="#000000" type="txt" ftype="par" arg="">metodo</field>
+    </pageheader>
+    <pagefooter id="pfoot" height="10.000">
+        <line id="0" zValue="0" resource="static" fromX="150.314" fromY="0.000" toX="150.314" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="1" zValue="1" resource="static" fromX="128.841" fromY="0.000" toX="128.841" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="2" zValue="2" resource="static" fromX="107.367" fromY="0.000" toX="107.367" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="3" zValue="3" resource="static" fromX="236.208" fromY="0.000" toX="236.208" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="4" zValue="4" resource="static" fromX="193.261" fromY="0.000" toX="193.261" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="5" zValue="5" resource="static" fromX="214.734" fromY="0.000" toX="214.734" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <line id="6" zValue="6" resource="static" fromX="171.787" fromY="0.000" toX="171.787" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+        <rectangle id="7" zValue="7" resource="static" posX="85.894" posY="0.000" width="171.787" height="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100" fillColor="#000000" fillStyle="no"/>
+        <label id="8" zValue="8" resource="static" posX="62.886" posY="0.000" width="23.007" height="4.601" fontName="Arial" fontSize="9" fontWeight="bold" alignment="4" forecolor="#000000">Hora Salida</label>
+    </pagefooter>
+    <details>
+        <detail id="Detail1" height="5.000" datasource="model" startsOnNewPage="false">
+            <items>
+                <line id="0" zValue="0" resource="static" fromX="0.000" fromY="4.601" toX="257.681" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+                <line id="1" zValue="1" resource="static" fromX="85.894" fromY="0.000" toX="85.894" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+                <line id="2" zValue="2" resource="static" fromX="107.367" fromY="0.000" toX="107.367" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+                <line id="3" zValue="3" resource="static" fromX="128.841" fromY="0.000" toX="128.841" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+                <line id="4" zValue="4" resource="static" fromX="6.135" fromY="0.000" toX="6.135" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+                <line id="5" zValue="5" resource="static" fromX="65.954" fromY="0.000" toX="65.954" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+                <line id="6" zValue="6" resource="static" fromX="150.314" fromY="0.000" toX="150.314" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+                <line id="7" zValue="7" resource="static" fromX="171.787" fromY="0.000" toX="171.787" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+                <line id="8" zValue="8" resource="static" fromX="193.261" fromY="0.000" toX="193.261" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+                <line id="9" zValue="9" resource="static" fromX="236.208" fromY="0.000" toX="236.208" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+                <line id="10" zValue="10" resource="static" fromX="214.734" fromY="0.000" toX="214.734" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+                <line id="11" zValue="11" resource="static" fromX="257.681" fromY="0.000" toX="257.681" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+                <field id="12" zValue="12" resource="static" posX="0.000" posY="0.000" width="6.135" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="num" ftype="ds" arg="">0</field>
+                <field id="13" zValue="13" resource="static" posX="65.954" posY="0.000" width="19.940" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">2</field>
+                <field id="14" zValue="14" resource="static" posX="6.135" posY="0.000" width="59.819" height="4.857" fontName="Arial" fontSize="9" alignment="4" forecolor="#000000" type="txt" ftype="ds" arg="">1</field>
+                <line id="15" zValue="15" resource="static" fromX="0.000" fromY="0.000" toX="0.000" toY="4.601" lineColor="#000000" lineStyle="solid" lineWidth="0.100"/>
+            </items>
+        </detail>
+    </details>
+</NCReport>

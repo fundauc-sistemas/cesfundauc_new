@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\procesos_ces.o
+./debug\procesos_caja.o
+./debug\procesos_admin.o
+./debug\interfaz.o
+./debug\moc_procesos_ces.o
+./debug\moc_procesos_caja.o
+./debug\moc_procesos_admin.o
+./debug\moc_interfaz.o
+./debug\qrc_icons.o
+);
