@@ -23,7 +23,7 @@ interfaz::interfaz(QMainWindow *parent): QMainWindow(parent)
 
 void interfaz::conexion()
 {
-    if(!crearconexion())
+    if((!crearConexionOracle())||(!crearConexionMysql()))
         close();
 }
 
@@ -98,7 +98,7 @@ void interfaz::actionsCaja()
     ui.menuReportes->addAction(actionCierre_Comercializables);
     ui.menuReportes->setEnabled(true);
 
-
+    caja = new procesos_caja(programa,username,db,this);
 }
 
 
@@ -333,6 +333,7 @@ void interfaz::actionsCtrlEst()
     ui.menuReportes->addMenu(menuListados);
     ui.menuReportes->addMenu(menuEstadisticas);
     ui.menuReportes->setEnabled(true);
+    ces = new procesos_ces(programa,programa_academico,username,db,this);
 }
 
 
@@ -354,6 +355,8 @@ void interfaz::actionsAdmin()
     connect(actionUsuario,SIGNAL(triggered()),this,SLOT(regUsuarios()));
     connect(actionPrograma,SIGNAL(triggered()),this,SLOT(regProgramas()));
     connect(actionRespaldo,SIGNAL(triggered()),this,SLOT(respaldo()));
+
+    admin = new procesos_admin(this);
 }
 
 void interfaz::actionsMercadeo()
@@ -388,7 +391,9 @@ void interfaz::crearActions()
 
 void interfaz::cerrar()
 {
-    closeconexion();
+    //matar caja ces admin
+    closeconexion(db);
+    closeconexion(db2);
     close();
 }
 
@@ -516,7 +521,6 @@ void interfaz::inicioSesion()
 
 void interfaz::formFactura()
 {
-    caja = new procesos_caja(programa,username,db,this);
     ui.frame->setWidget(caja);
     caja->nuevaFactura();
     disconnect(ui.actionImprimir,SIGNAL(triggered()),0,0);
@@ -526,7 +530,6 @@ void interfaz::formFactura()
 
 void interfaz::regFactura()
 {
-    caja = new procesos_caja(programa,username,db,this);
     ui.frame->setWidget(caja);
     caja->registroFacturas();
     disconnect(ui.actionImprimir,SIGNAL(triggered()),0,0);
@@ -536,7 +539,6 @@ void interfaz::regFactura()
 
 void interfaz::regDeposito()
 {
-    caja = new procesos_caja(programa,username,db,this);
     ui.frame->setWidget(caja);
     caja->registroDepositos();
     disconnect(ui.actionImprimir,SIGNAL(triggered()),0,0);
@@ -545,73 +547,73 @@ void interfaz::regDeposito()
 
 void interfaz::regBancos()
 {
-    caja = new procesos_caja(programa,username,db,this);
+
     ui.frame->setWidget(caja);
     caja->registroBancos();
 }
 
 void interfaz::regPrecios()
 {
-    caja = new procesos_caja(programa,username,db,this);
+
     ui.frame->setWidget(caja);
     caja->registroPrecios();
 }
 
 void interfaz::regEmpresas()
 {
-    caja = new procesos_caja(programa,username,db,this);
+
     ui.frame->setWidget(caja);
     caja->registroEmpresas();
 }
 
 void interfaz::valija()
 {
-    caja = new procesos_caja(programa,username,db,this);
+
     //ui.frame->setWidget(caja);
     caja->mesValija();
 }
 
 void interfaz::ingresos()
 {
-    caja = new procesos_caja(programa,username,db,this);
+
     caja->ingresosPeriodo();
 }
 
 void interfaz::cuadreDiario()
 {
-    caja = new procesos_caja(programa,username,db,this);
+
     caja->setupCierre();
 }
 
 void interfaz::cedulaMensual()
 {
-    caja = new procesos_caja(programa,username,db,this);
+
     caja->setupCedula();
 }
 
 
 void interfaz::cierreMensual()
 {
-    caja = new procesos_caja(programa,username,db,this);
+
     caja->cierreMensual();
 }
 
 void interfaz::comercializables()
 {
-    caja = new procesos_caja(programa,username,db,this);
+
     caja->setupComercializables();
 }
 
 void interfaz::cuentasCobro()
 {
-    caja= new procesos_caja(programa,username,db,this);
+
     ui.frame->setWidget(caja);
     caja->cuentasPorCobrar();
 }
 
 void interfaz::setCodigoContable()
 {
-    caja= new procesos_caja(programa,username,db,this);
+
     ui.frame->setWidget(caja);
     caja->registroCodigos();
 }
@@ -619,7 +621,7 @@ void interfaz::setCodigoContable()
 
 void interfaz::crearCarnet() //Está en la clase caja, pero se accede desde el modulo de control de estudios. Arreglar
 {
-    caja = new procesos_caja(programa,username,db,this);
+
     ui.frame->setWidget(caja);
     caja->crearCarnet();
 }
@@ -627,7 +629,6 @@ void interfaz::crearCarnet() //Está en la clase caja, pero se accede desde el mo
 
 void interfaz::regEstudiante()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
     ui.frame->setWidget(ces);
     ces->registroEstudiantes2();
 
@@ -635,64 +636,61 @@ void interfaz::regEstudiante()
 
 void interfaz::regProfesor()
 {
-        ces = new procesos_ces(programa,programa_academico,db,this);
-        ui.frame->setWidget(ces);
-        ces->registroProfesores();
+    ui.frame->setWidget(ces);
+    ces->registroProfesores();
 }
 
 void interfaz::regCurso()
 {
-        ces = new procesos_ces(programa,programa_academico,db,this);
-        ui.frame->setWidget(ces);
-        ces->registroMetodos();
+    ui.frame->setWidget(ces);
+    ces->registroMetodos();
 }
 
 void interfaz::regNivel()
 {
-        ces = new procesos_ces(programa,programa_academico,db,this);
-        ui.frame->setWidget(ces);
-        ces->registroNiveles();
+    ui.frame->setWidget(ces);
+    ces->registroNiveles();
 }
 
 
 void interfaz::regMateriales()
 {
-        ces = new procesos_ces(programa,programa_academico,db,this);
+
         ui.frame->setWidget(ces);
         ces->registroMat();
 }
 
 void interfaz::regTipoEst()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->registroTipoEst();
 }
 
 void interfaz::regCondiciones()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->registroCondiciones();
 }
 
 void interfaz::regEventos()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->registroEventos();
 }
 
 void interfaz::regCal()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->registroCalendario();
 }
 
 void interfaz::regCal2()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->registroCalendarioPago();
 }
@@ -700,112 +698,112 @@ void interfaz::regCal2()
 
 void interfaz::regSalones()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->registroSalones();
 }
 
 void interfaz::regSecciones()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->registroSecciones();
 }
 
 void interfaz::regDiplo()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->registroDiplomados();
 }
 
 void interfaz::regCerti()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->registroCertificacion();
 }
 
 void interfaz::regModulos()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->registroModulos();
 }
 
 void interfaz::regCohortes()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->registroCohortes();
 }
 
 void interfaz::regCohortesC()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->registroCohortesCerti();
 }
 
 void interfaz::regHorarios()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->registroHorarios();
 }
 
 void interfaz::regModalidades()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->registroModalidades();
 }
 
 void interfaz::fichaAcademica()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setFichaAcademica();
 }
 
 void interfaz::fichaPago()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setFichaPago();
 }
 
 void interfaz::fichaPagoCFP()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setFichaPagoCFP();
 }
 
 void interfaz::controlEvaluacion()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setControlEvaluacion();
 }
 
 void interfaz::controlEvaluacionCFP()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setControlEvalCFP();
 }
 
 void interfaz::controlAsistenciaCFP()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setControlAsistCFP();
 }
 
 void interfaz::cargaAcademica()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     //ces->setCargaAcademica();
 }
@@ -813,35 +811,35 @@ void interfaz::cargaAcademica()
 
 void interfaz::listadoCursos()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setListados(1);
 }
 
 void interfaz::listadoDiplos()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setListados(2);
 }
 
 void interfaz::listadoIdiomas()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setListadoIdiomas(1);
 }
 
 void interfaz::listadoIdiomas2()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setListadoIdiomas(2);
 }
 
 void interfaz::listadoIdiomas3()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setListadoIdiomas(3);
 }
@@ -849,82 +847,81 @@ void interfaz::listadoIdiomas3()
 
 void interfaz::listadoGraduandos()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
-    ui.frame->setWidget(ces);
+
     ces->setGraduandos();
 }
 
 void interfaz::listadoBookA()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ces->setSchedule();
 }
 
 void interfaz::historico()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setHistorico();
 }
 
 void interfaz::inscritosCFP()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ces->setListadoInscritos();
 }
 
 void interfaz::asistenciaCFP()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setListadosCFP(2);
 }
 
 void interfaz::evaluacionCFP()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setListadosCFP(1);
 }
 
 void interfaz::participantesCFP()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setListadosCFP(3);
 }
 
 void interfaz::contactoCFP()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setListadosCFP(6);
 }
 
 void interfaz::graduandosCFP()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setListadosCFP(4);
 }
 
 void interfaz::morososCFP()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setListadosCFP(5);
 }
 
 void interfaz::listadoProfesores()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setListadosCFP(6);
 }
 
 void interfaz::regUsuarios()
 {
-    admin = new procesos_admin(this);
+
     ui.frame->setWidget(admin);
     admin->registroUsuarios();
 }
@@ -932,134 +929,134 @@ void interfaz::regUsuarios()
 
 void interfaz::respaldo()
 {
-    admin = new procesos_admin(this);
+
     admin->respaldo();
 }
 
 void interfaz::regProgramas()
 {
-    admin = new procesos_admin(this);
+
     ui.frame->setWidget(admin);
     admin->registroProgramas();
 }
 
 void interfaz::consActoGrado()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ces->constancias(0);
 }
 
 void interfaz::consBecaTrabajo()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ces->constancias(1);
 }
 
 void interfaz::consEstNota()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ces->constancias(2);
 }
 
 void interfaz::consAproNota()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ces->constancias(3);
 }
 
 void interfaz::consEstIngNota()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ces->constancias(4);
 }
 
 void interfaz::consAproIngNota()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ces->constancias(5);
 }
 
 void interfaz::consInicio()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ces->constancias(6);
 }
 
 void interfaz::consEstSinNota()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ces->constancias(7);
 }
 
 void interfaz::consAproSinNota()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ces->constancias(8);
 }
 
 void interfaz::consEstIngSinNota()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ces->constancias(9);
 }
 
 void interfaz::consAproIngSinNota()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ces->constancias(10);
 }
 
 void interfaz::setCambioSeccion()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setCambioSeccion();
 }
 
 void interfaz::setCambioMetodo()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setCambioMetodo();
 }
 
 void interfaz::setCambioDiplomado()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setCambioDiplo();
 }
 
 void interfaz::setFusionSeccion()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setFusionSeccion();
 }
 
 void interfaz::setRetiro()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setRetiro();
 }
 
 void interfaz::listadoAlumnos()
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ces->setMercadeo(1);
 }
 
 void interfaz::regMercadeo1()//Idiomas
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setMercadeo(2);
 }
 
 void interfaz::regMercadeo2()//Diplomados
 {
-    ces = new procesos_ces(programa,programa_academico,db,this);
+
     ui.frame->setWidget(ces);
     ces->setMercadeo(3);
 }

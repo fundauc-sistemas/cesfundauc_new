@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>543</width>
-    <height>304</height>
+    <height>318</height>
    </rect>
   </property>
   <property name="font">
@@ -40,7 +40,7 @@
 color: rgb(00,56,147);</string>
      </property>
      <property name="text">
-      <string>Empresa</string>
+      <string>Cliente</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -75,7 +75,7 @@ color: rgb(00,56,147);</string>
        </property>
        <property name="maximumSize">
         <size>
-         <width>150</width>
+         <width>100</width>
          <height>16777215</height>
         </size>
        </property>
@@ -101,7 +101,7 @@ color: rgb(00,56,147);</string>
         </font>
        </property>
        <property name="text">
-        <string>RIF</string>
+        <string>Cedula / RIF</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -207,10 +207,30 @@ color: rgb(00,56,147);</string>
      </item>
      <item>
       <widget class="QLineEdit" name="dir">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>25</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <pointsize>9</pointsize>
         </font>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <item>
+      <widget class="QLineEdit" name="dir2">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>25</height>
+        </size>
        </property>
       </widget>
      </item>
@@ -236,6 +256,12 @@ color: rgb(00,56,147);</string>
      </item>
      <item>
       <widget class="QLineEdit" name="telefono">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>25</height>
+        </size>
+       </property>
        <property name="maximumSize">
         <size>
          <width>150</width>
@@ -250,17 +276,21 @@ color: rgb(00,56,147);</string>
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+      <widget class="QLabel" name="email_label">
+       <property name="text">
+        <string>Email</string>
        </property>
-       <property name="sizeHint" stdset="0">
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="email">
+       <property name="minimumSize">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>0</width>
+         <height>25</height>
         </size>
        </property>
-      </spacer>
+      </widget>
      </item>
     </layout>
    </item>

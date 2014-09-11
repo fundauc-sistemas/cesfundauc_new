@@ -86,7 +86,7 @@ class procesos_caja : public QWidget
         void crearCarnet();
         void cuentasPorCobrar();
         void setupComercializables();
-        bool crearConexionMysql();
+        //bool crearConexionMysql();
 
     public slots:
         void nuevaFactura();

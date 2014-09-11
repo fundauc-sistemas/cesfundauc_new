@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'empresas.ui'
 **
-** Created: Fri 30. May 09:27:19 2014
-**      by: Qt User Interface Compiler version 4.8.1
+** Created: Thu 11. Sep 15:19:39 2014
+**      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -42,10 +42,13 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *label_4;
     QLineEdit *dir;
+    QHBoxLayout *horizontalLayout_6;
+    QLineEdit *dir2;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_5;
     QLineEdit *telefono;
-    QSpacerItem *horizontalSpacer_3;
+    QLabel *email_label;
+    QLineEdit *email;
     QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer_2;
     QPushButton *aceptar;
@@ -55,7 +58,7 @@ public:
     {
         if (empresa->objectName().isEmpty())
             empresa->setObjectName(QString::fromUtf8("empresa"));
-        empresa->resize(543, 304);
+        empresa->resize(543, 318);
         QFont font;
         font.setFamily(QString::fromUtf8("Segoe UI"));
         font.setPointSize(10);
@@ -92,7 +95,7 @@ public:
         matricula = new QLineEdit(empresa);
         matricula->setObjectName(QString::fromUtf8("matricula"));
         matricula->setMinimumSize(QSize(0, 25));
-        matricula->setMaximumSize(QSize(150, 16777215));
+        matricula->setMaximumSize(QSize(100, 16777215));
         QFont font2;
         font2.setPointSize(9);
         matricula->setFont(font2);
@@ -156,12 +159,24 @@ public:
 
         dir = new QLineEdit(empresa);
         dir->setObjectName(QString::fromUtf8("dir"));
+        dir->setMinimumSize(QSize(0, 25));
         dir->setFont(font2);
 
         horizontalLayout->addWidget(dir);
 
 
         verticalLayout->addLayout(horizontalLayout);
+
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        dir2 = new QLineEdit(empresa);
+        dir2->setObjectName(QString::fromUtf8("dir2"));
+        dir2->setMinimumSize(QSize(0, 25));
+
+        horizontalLayout_6->addWidget(dir2);
+
+
+        verticalLayout->addLayout(horizontalLayout_6);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
@@ -174,14 +189,22 @@ public:
 
         telefono = new QLineEdit(empresa);
         telefono->setObjectName(QString::fromUtf8("telefono"));
+        telefono->setMinimumSize(QSize(0, 25));
         telefono->setMaximumSize(QSize(150, 16777215));
         telefono->setFont(font2);
 
         horizontalLayout_3->addWidget(telefono);
 
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        email_label = new QLabel(empresa);
+        email_label->setObjectName(QString::fromUtf8("email_label"));
 
-        horizontalLayout_3->addItem(horizontalSpacer_3);
+        horizontalLayout_3->addWidget(email_label);
+
+        email = new QLineEdit(empresa);
+        email->setObjectName(QString::fromUtf8("email"));
+        email->setMinimumSize(QSize(0, 25));
+
+        horizontalLayout_3->addWidget(email);
 
 
         verticalLayout->addLayout(horizontalLayout_3);
@@ -214,12 +237,13 @@ public:
     void retranslateUi(QWidget *empresa)
     {
         empresa->setWindowTitle(QApplication::translate("empresa", "CONTROL DE ESTUDIOS", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("empresa", "Empresa", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("empresa", "Cliente", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("empresa", "Matricula", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("empresa", "RIF", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("empresa", "Cedula / RIF", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("empresa", "Razon Social", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("empresa", "Direcci\303\263n", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("empresa", "Tel\303\251fono", 0, QApplication::UnicodeUTF8));
+        email_label->setText(QApplication::translate("empresa", "Email", 0, QApplication::UnicodeUTF8));
         aceptar->setText(QApplication::translate("empresa", "Guardar", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

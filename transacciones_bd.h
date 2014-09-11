@@ -8,7 +8,7 @@
 QSqlDatabase db;
 QSqlDatabase db2;
 
-static bool crearconexion()
+static bool crearConexionOracle()
 {
     db = QSqlDatabase();
     db = QSqlDatabase::addDatabase("QOpenOCCI");
@@ -28,7 +28,24 @@ static bool crearconexion()
     return true;
 }
 
-void closeconexion()
+static bool crearConexionMysql()
+{
+    db2 = QSqlDatabase();
+    db2 = QSqlDatabase::addDatabase("QMYSQL","mysql_conn");
+    db2.setPort(3306);
+    db2.setHostName("Aplicaciones");
+    db2.setDatabaseName("sge0001");
+    db2.setUserName("root");
+    db2.setPassword("");
+    if(!db2.open())
+    {
+        QMessageBox::critical(0, qApp->tr("Error"),qApp->tr("Incapaz de establecer conexión. ("+db2.lastError().text()+")"), QMessageBox::Cancel);
+        return false;
+    }
+    return true;
+}
+
+void closeconexion(QSqlDatabase db)
 {
     QString nombre = db.databaseName();
     db.close();

@@ -30,31 +30,6 @@ procesos_caja::procesos_caja(QString prog,QString user,QSqlDatabase db,QWidget *
     }
 }
 
-bool procesos_caja::crearConexionMysql()
-{
-    db2 = QSqlDatabase();
-    db2 = QSqlDatabase::addDatabase("QMYSQL","mysql_conn");
-    db2.setPort(3306);
-    db2.setHostName("Aplicaciones");
-    db2.setDatabaseName("sge0001");
-    db2.setUserName("root");
-    db2.setPassword("");
-    if(!db2.open())
-    {
-        QMessageBox::critical(0, qApp->tr("Error"),qApp->tr("Incapaz de establecer conexión. ("+db2.lastError().text()+")"), QMessageBox::Cancel);
-        return false;
-    }
-    return true;
-}
-
-void closeConexionMysql(QSqlDatabase db)
-{
-    QString nombre = db.databaseName();
-    db.close();
-    QSqlDatabase::removeDatabase(nombre);
-}
-
-
 /** Crea y muestra un dialogo para seleccionar el programa academico en el que se va a facturar
 */
 
@@ -620,7 +595,7 @@ void procesos_caja::rifChanged()
         {
             case QMessageBox::Yes: //El usuario selecciona la opcion para registrar
             {
-               procesos_ces *ces = new procesos_ces(compania,"",database);
+               procesos_ces *ces = new procesos_ces(compania,"",usuario,database);
                ces->registroEmpresas(factura.f_cedula_5->text(),factura.f_matricula->text());//Abre el dialogo de registro de empresas
             }
             break;
@@ -695,6 +670,9 @@ void procesos_caja::cedulaChanged()
     factura.f_turno->clear();
     factura.f_nivel->clear();
 
+    //crearConexionMysql(); //Para abrir bd de datapro
+    QSqlQuery query(db2);
+
     consulta.exec("SELECT nombre,id_tipo_est,matricula,condicion_especial,apellido,cedula_rep FROM estudiante WHERE cedula_est ='"+cedula+"'");
     while(consulta.next())
     {
@@ -711,7 +689,20 @@ void procesos_caja::cedulaChanged()
         }
         factura.f_matricula->setText(consulta.value(2).toString());
 
-        consulta2.exec("select * from empresas where rif='"+consulta.value(5).toString()+"'");
+        //Consultar DPCLIENTES
+        query.exec("select cli_dir1,cli_nombre,cli_tel1 from dpclientes where cli_codigo="+consulta.value(5).toString()+"");
+        while(query.next())
+        {
+            factura.f_cedula_5->setText(consulta.value(5).toString());
+            factura.f_cedula_5->setEnabled(false);
+            factura.f_nombre_5->setText(query.value(1).toString());
+            factura.f_nombre_5->setEnabled(false);
+            factura.f_telf_3->setText(query.value(2).toString());
+            factura.f_telf_3->setEnabled(false);
+            factura.f_direccion->setText(query.value(0).toString());
+            factura.f_direccion->setEnabled(false);
+        }
+        /*consulta2.exec("select * from empresas where rif='"+consulta.value(5).toString()+"'");
         while(consulta2.next())
         {
             factura.f_cedula_5->setText(consulta2.value(0).toString());
@@ -722,7 +713,7 @@ void procesos_caja::cedulaChanged()
             factura.f_telf_3->setEnabled(false);
             factura.f_direccion->setText(consulta2.value(2).toString());
             factura.f_direccion->setEnabled(false);
-        }
+        }*/
         not_found=false;
     }
 
@@ -738,7 +729,7 @@ void procesos_caja::cedulaChanged()
         {
            case QMessageBox::Yes:
            {
-               procesos_ces *ces = new procesos_ces(compania,"",database);
+               procesos_ces *ces = new procesos_ces(compania,"",usuario,database);
                ces->registroEstudiantes(cedula);
            }
            break;
@@ -756,6 +747,7 @@ void procesos_caja::cedulaChanged()
     }
     else
         chequeoEstudiante(factura.f_matricula->text());
+    //closeConexionMysql(db2);
 }
 
 
@@ -768,7 +760,9 @@ void procesos_caja::matriculaChanged()
 {
     QString matricula(factura.f_matricula->text());
     QSqlQuery consulta,consulta2;
-    bool not_found =true;
+    QMessageBox msgBox;
+    bool not_found=true;
+    bool cliente=true;
 
     factura.f_nombre_4->clear();
     factura.f_condicion_2->clear();
@@ -778,6 +772,9 @@ void procesos_caja::matriculaChanged()
     factura.f_curso_2->clear();
     factura.f_turno->clear();
     factura.f_nivel->clear();
+
+    //crearConexionMysql(); //Para abrir bd de datapro
+    QSqlQuery query(db2);
 
     consulta.exec("SELECT cedula_est,nombre,id_tipo_est,condicion_especial,apellido,cedula_rep FROM estudiante WHERE matricula ='"+matricula+"'");
     while(consulta.next())
@@ -795,6 +792,40 @@ void procesos_caja::matriculaChanged()
         }
         factura.f_cedula_4->setText(consulta.value(0).toString());
 
+        query.exec("select cli_dir1,cli_nombre,cli_tel1 from dpclientes where cli_codigo="+consulta.value(5).toString()+"");
+        while(query.next())
+        {
+            factura.f_cedula_5->setText(consulta.value(5).toString());
+            factura.f_cedula_5->setEnabled(false);
+            factura.f_nombre_5->setText(query.value(1).toString());
+            factura.f_nombre_5->setEnabled(false);
+            factura.f_telf_3->setText(query.value(2).toString());
+            factura.f_telf_3->setEnabled(false);
+            factura.f_direccion->setText(query.value(0).toString());
+            factura.f_direccion->setEnabled(false);
+            cliente=false;
+        }
+        if(cliente)
+        {
+            msgBox.setText("Cliente no registrado");
+            msgBox.setInformativeText("¿Añadir datos?");
+            msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+            msgBox.setDefaultButton(QMessageBox::Yes);
+            int ret = msgBox.exec();
+            switch (ret)
+            {
+                case QMessageBox::Yes: //El usuario selecciona la opcion para registrar
+                {
+                   procesos_ces *ces = new procesos_ces(compania,"",usuario,database);
+                   ces->registroEmpresas(factura.f_cedula_5->text(),factura.f_matricula->text());//Abre el dialogo de registro de empresas
+                }
+                break;
+                case QMessageBox::No://El usuario selecciona no registrar
+                   msgBox.close();
+                break;
+            }
+        }
+        /*
         consulta2.exec("select * from empresas where rif='"+consulta.value(5).toString()+"'");
         while(consulta2.next())
         {
@@ -806,12 +837,12 @@ void procesos_caja::matriculaChanged()
             factura.f_telf_3->setEnabled(false);
             factura.f_direccion->setText(consulta2.value(2).toString());
             factura.f_direccion->setEnabled(false);
-        }
+        }*/
+
         not_found=false;
     }
     if(not_found)
     {
-        QMessageBox msgBox;
         msgBox.setText("Estudiante no registrado");
         msgBox.setInformativeText("¿Registrar?");
         msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
@@ -821,7 +852,7 @@ void procesos_caja::matriculaChanged()
         {
            case QMessageBox::Yes:
            {
-               procesos_ces *ces = new procesos_ces(compania,"",database);
+               procesos_ces *ces = new procesos_ces(compania,"",usuario,database);
                ces->registroEstudiantes(" ");
            }
            break;
@@ -839,6 +870,7 @@ void procesos_caja::matriculaChanged()
     }
     else
         chequeoEstudiante(matricula);
+    //closeConexionMysql(db2);
 }
 
 
@@ -2598,7 +2630,7 @@ void procesos_caja::imprimirFactura()
     QList<QString> facturas;
     suma=0;
 
-    crearConexionMysql(); //Para abrir bd de datapro
+    //crearConexionMysql(); //Para abrir bd de datapro
     QSqlQuery query(db2);
     QSqlQuery consulta;
 

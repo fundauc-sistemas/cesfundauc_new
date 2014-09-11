@@ -73,7 +73,7 @@ class procesos_ces : public QWidget
     Q_OBJECT
 
     public:
-        procesos_ces(QString programa,QString academico,QSqlDatabase db, QWidget *parent = 0);
+        procesos_ces(QString programa,QString academico,QString user,QSqlDatabase db, QWidget *parent = 0);
         ~procesos_ces();
 
         Ui::ces container;
@@ -412,6 +412,7 @@ class procesos_ces : public QWidget
         bool acop;
         bool cfp;
         NCReport *report;
+        QString usuario;
 
 };
 #endif /* PROCESOS_CES_H_ */

@@ -7,10 +7,11 @@
 #include "procesos_ces.h"
 
 
-procesos_ces::procesos_ces(QString programa,QString academico,QSqlDatabase db,QWidget *parent): QWidget(parent)
+procesos_ces::procesos_ces(QString programa,QString academico,QString user,QSqlDatabase db,QWidget *parent): QWidget(parent)
 {
     container.setupUi(this);
     prog=programa;
+    usuario=user;
     report= new NCReport();
     prog_academico=academico;
 }
@@ -398,10 +399,13 @@ void procesos_ces::registroEmpresas(QString rif, QString matricula)
 
 void procesos_ces::nuevaEmpresa()
 {
-    QSqlQuery consulta;
+    QSqlQuery consulta,query;
+    //QSqlQuery query(db2);
 
-    if(!consulta.exec("insert into empresas values('"+reg_empresas.rif->text()+"','"+reg_empresas.razon->text()+"','"+reg_empresas.dir->text()+"','"+reg_empresas.telefono->text()+"')"))
-        QMessageBox::critical(0,"Error Nueva Empresa",consulta.lastError().text());
+
+    //if(!consulta.exec("insert into empresas values('"+reg_empresas.rif->text()+"','"+reg_empresas.razon->text()+"','"+reg_empresas.dir->text()+"','"+reg_empresas.telefono->text()+"')"))
+    if(!query.exec("insert into dpclientes values('','1','','E','','','','0','1','','"+reg_empresas.rif->text()+"','','','','','N','N','','','"+reg_empresas.dir->text()+"','"+reg_empresas.dir2->text()+"','','','"+reg_empresas.email->text()+"','N','-Indefinido','','','','','A','0','N','','','-Indefinido','"+reg_empresas.razon->text()+"','','','Venezuela','-Indefinido','N','','S','','A','"+reg_empresas.telefono->text()+"','','','','','','N','N','"+usuario+"','','N','','','currentdate','','','','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0')"))
+        QMessageBox::critical(0,"Error Nuevo Cliente",consulta.lastError().text());
     else
     {
         if(!consulta.exec("update estudiante set cedula_rep='"+reg_empresas.rif->text()+"' where matricula='"+reg_empresas.matricula->text()+"'"))
