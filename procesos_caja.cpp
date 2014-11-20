@@ -16,12 +16,13 @@
  * @return
 */
 
-procesos_caja::procesos_caja(QString prog,QString user,QSqlDatabase db,QWidget *parent): QWidget(parent)
+procesos_caja::procesos_caja(QString prog,QString user,QSqlDatabase db,QSqlDatabase db2,QWidget *parent): QWidget(parent)
 {
     compania=prog;
     usuario=user;
     container.setupUi(this);
     database = db;
+    mysql=db2;
     report= new NCReport();
     QSqlQuery consulta("select nombre from usuarios where nombre_usuario='"+user+"'");
     while(consulta.next())
@@ -595,7 +596,7 @@ void procesos_caja::rifChanged()
         {
             case QMessageBox::Yes: //El usuario selecciona la opcion para registrar
             {
-               procesos_ces *ces = new procesos_ces(compania,"",usuario,database);
+               procesos_ces *ces = new procesos_ces(compania,"",usuario,database,mysql);
                ces->registroEmpresas(factura.f_cedula_5->text(),factura.f_matricula->text());//Abre el dialogo de registro de empresas
             }
             break;
@@ -671,7 +672,7 @@ void procesos_caja::cedulaChanged()
     factura.f_nivel->clear();
 
     //crearConexionMysql(); //Para abrir bd de datapro
-    QSqlQuery query(db2);
+    QSqlQuery query(mysql);
 
     consulta.exec("SELECT nombre,id_tipo_est,matricula,condicion_especial,apellido,cedula_rep FROM estudiante WHERE cedula_est ='"+cedula+"'");
     while(consulta.next())
@@ -729,7 +730,7 @@ void procesos_caja::cedulaChanged()
         {
            case QMessageBox::Yes:
            {
-               procesos_ces *ces = new procesos_ces(compania,"",usuario,database);
+               procesos_ces *ces = new procesos_ces(compania,"",usuario,database,mysql);
                ces->registroEstudiantes(cedula);
            }
            break;
@@ -747,7 +748,7 @@ void procesos_caja::cedulaChanged()
     }
     else
         chequeoEstudiante(factura.f_matricula->text());
-    //closeConexionMysql(db2);
+    //closeConexionMysql(mysql);
 }
 
 
@@ -774,7 +775,7 @@ void procesos_caja::matriculaChanged()
     factura.f_nivel->clear();
 
     //crearConexionMysql(); //Para abrir bd de datapro
-    QSqlQuery query(db2);
+    QSqlQuery query(mysql);
 
     consulta.exec("SELECT cedula_est,nombre,id_tipo_est,condicion_especial,apellido,cedula_rep FROM estudiante WHERE matricula ='"+matricula+"'");
     while(consulta.next())
@@ -816,7 +817,7 @@ void procesos_caja::matriculaChanged()
             {
                 case QMessageBox::Yes: //El usuario selecciona la opcion para registrar
                 {
-                   procesos_ces *ces = new procesos_ces(compania,"",usuario,database);
+                   procesos_ces *ces = new procesos_ces(compania,"",usuario,database,mysql);
                    ces->registroEmpresas(factura.f_cedula_5->text(),factura.f_matricula->text());//Abre el dialogo de registro de empresas
                 }
                 break;
@@ -852,7 +853,7 @@ void procesos_caja::matriculaChanged()
         {
            case QMessageBox::Yes:
            {
-               procesos_ces *ces = new procesos_ces(compania,"",usuario,database);
+               procesos_ces *ces = new procesos_ces(compania,"",usuario,database,mysql);
                ces->registroEstudiantes(" ");
            }
            break;
@@ -870,7 +871,7 @@ void procesos_caja::matriculaChanged()
     }
     else
         chequeoEstudiante(matricula);
-    //closeConexionMysql(db2);
+    //closeConexionMysql(mysql);
 }
 
 
@@ -1241,7 +1242,6 @@ void procesos_caja::facturaSetup()
 
 void procesos_caja::agregarItem()
 {
-    QMessageBox::information(0,"","Entra");
     QString texto,tiva,ttotal,tipo;
     QSqlQuery consulta;
     float iva,total;
@@ -2105,11 +2105,12 @@ void procesos_caja::llenarCurso(QString s)
  *
  */
 
-void procesos_caja::guardarFactura(QList<QList<QString> > items,QString factura,QString cedula,QString nombre,QString monto,QString piva,QString iva,QString dir,QString cedula2,QString nombre2,QString matricula)
+void procesos_caja::guardarFactura(QList<QList<QString> > items,QString factura,QString cedula,QString nombre,QString monto,QString piva,QString iva,QString dir,QString cedula2,QString nombre2,QString matricula,QString recibo)
 {
     QSqlQuery consulta,consulta2;
+    QSqlQuery query(mysql);
     QList<QString> aux;
-    QString precio,subtotal,tipo,cuota,evento,actual,mod,nivel;
+    QString precio,subtotal,tipo,cuota,evento,actual,nivel,cencos,sucursal,codigo;
     float acumulado;
 
     int i;
@@ -2117,10 +2118,25 @@ void procesos_caja::guardarFactura(QList<QList<QString> > items,QString factura,
     //iva.replace(QString("."), QString(","));
     //monto.replace(QString("."), QString(","));
 
-    if(!consulta.exec("insert into factura values('"+factura+"','FA','"+cedula2+"','"+nombre+"','1',to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','dd-mm-yyyy'),'"+monto+"','"+piva+"','"+iva+"','0','0','"+dir+"','"+cedula+"','V','1','0','"+programa+"','s','"+nombre2+"','"+prog_academico+"','"+usuario+"')"))
+    consulta.exec("select cencos from companias where id='"+compania+"'");
+    while(consulta.next())
+    {
+        cencos=consulta.value(0).toString();
+    }
+
+    if(!query.exec("insert into dpdoccli values('FAV','"+cedula2+"','"+factura+"',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'000001','000001','"+monto+"','0','0','0','"+cencos+"','Bs','Contado','0',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'"+QTime::currentTime().toString("hh:mm:ss")+"','0','1.0','0','0','PA','D','"+recibo+"','1','"+factura+"','N','TRANSP','"+usuario+"','','1','A','1','LIBRE','',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'0','','0','','N','V','','','0','0','0','','"+monto+"','','','0','','0','','000000000000','0','0')"))
+        QMessageBox::critical(0,"Error Factura",query.lastError().text());
+    else
+        query.exec("commit");
+    if(!query.exec("insert into dpdoccli values('FAV','"+cedula2+"','"+factura+"',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'000001','000001','"+monto+"','0','0','0','"+cencos+"','Bs','Contado','0',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'"+QTime::currentTime().toString("hh:mm:ss")+"','0','1.0','0','0','AC','P','"+recibo+"','-1','"+factura+"','N','TRANSP','"+usuario+"','','1','A','1','LIBRE','',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'0','','0','','N','P','','','0','0','0','','0','','','0','','0','','000000000000','0','0')"))
+        QMessageBox::critical(0,"Error Factura",query.lastError().text());
+    else
+        query.exec("commit");
+
+    /*if(!consulta.exec("insert into factura values('"+factura+"','FA','"+cedula2+"','"+nombre+"','1',to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','dd-mm-yyyy'),'"+monto+"','"+piva+"','"+iva+"','0','0','"+dir+"','"+cedula+"','V','1','0','"+programa+"','s','"+nombre2+"','"+prog_academico+"','"+usuario+"')"))
         QMessageBox::critical(0,"Error Factura",consulta.lastError().text());
     else
-        consulta.exec("commit");
+        consulta.exec("commit");*/
 
     for(i=0;i<items.size();i++)
     {
@@ -2131,12 +2147,37 @@ void procesos_caja::guardarFactura(QList<QList<QString> > items,QString factura,
         //subtotal.replace(QString("."), QString(","));
         tipo=aux[0];
 
-        if(!consulta.exec("insert into detalle_factura values (detalle_factura_sec.nextval,'"+programa+"','"+factura+"','"+aux[0]+"','"+aux[1]+"','"+aux[2]+"','"+aux[3]+"','"+precio+"','0','"+subtotal+"','0')"))
+        sucursal="0001"; //Si no se va a trabajar por sucursales. Sucursal 001 es fundauc y los almacenes estan asociados al codigo de 'companias'.
+
+        //Insertar en dpmovinv aqui
+        if(tipo=="C")
+        {
+            consulta.exec("select id_metodo from secciones where id_seccion='"+aux[1]+"'");
+            while(consulta.next())
+            {
+                codigo=consulta.value(0).toString();
+            }
+            QMessageBox::information(0,"","insert into dpmovinv values ('"+codigo+"','','"+cedula2+"','"+factura+"',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'S000','UND','"+aux[3]+"',0,'"+usuario+"','"+subtotal+"','0','"+precio+"',0,'','"+iva+"',0,0,'','','I','"+tr("%1").arg(i+1)+"','A','FAV','"+QTime::currentTime().toString("hh:mm:ss")+"','1','1','"+sucursal+"','"+compania+"','EX','-"+aux[3]+"','-"+aux[3]+"','-"+aux[3]+"','','V','"+cencos+"',0,0,'',0,0,0,'',0,0,0,0,0,0,0,0,0,0,str_to_date('','%d-%m-%Y'),'','','',0,0,0,0)");
+            query.prepare("insert into dpmovinv values ('"+codigo+"','','"+cedula2+"','"+factura+"',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'S000','UND','"+aux[3]+"',0,'"+usuario+"','"+subtotal+"','0','"+precio+"',0,'','"+iva+"',0,0,'','','I','"+tr("%1").arg(i+1)+"','A','FAV','"+QTime::currentTime().toString("hh:mm:ss")+"','1','1','"+sucursal+"','"+compania+"','EX','-"+aux[3]+"','-"+aux[3]+"','-"+aux[3]+"','','V','"+cencos+"',0,0,'',0,0,0,'',0,0,0,0,0,0,0,0,0,0,str_to_date('','%d-%m-%Y'),'','','',0,0,0,0)");
+        }
+        else if(tipo=="L" || tipo=="G" || tipo=="CD")
+        {
+            query.prepare("insert into dpmovinv values ('"+codigo+"','','"+cedula2+"','"+factura+"',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'S000','UND','"+aux[3]+"',0,'"+usuario+"','"+subtotal+"','0','"+precio+"',0,'','"+iva+"',0,0,'','','I','"+tr("%1").arg(i+1)+"','A','FAV','"+QTime::currentTime().toString("hh:mm:ss")+"','1','1','"+sucursal+"','"+compania+"','EX','-"+aux[3]+"','-"+aux[3]+"','-"+aux[3]+"','','V','"+cencos+"',0,0,'',0,0,0,'',0,0,0,0,0,0,0,0,0,0,str_to_date('','%d-%m-%Y'),'','','',0,0,0,0)");
+        }
+        else
+            query.prepare("insert into dpmovinv values ('"+codigo+"','','"+cedula2+"','"+factura+"',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'S000','UND','"+aux[3]+"',0,'"+usuario+"','"+subtotal+"','0','"+precio+"',0,'','"+iva+"',0,0,'','','I','"+tr("%1").arg(i+1)+"','A','FAV','"+QTime::currentTime().toString("hh:mm:ss")+"','1','1','"+sucursal+"','"+compania+"','EX',0,0,0,'','V','"+cencos+"',0,0,'',0,0,0,'',0,0,0,0,0,0,0,0,0,0,str_to_date('','%d-%m-%Y'),'','','',0,0,0,0)");
+
+        if(!query.exec())
+            QMessageBox::critical(0,"Error mov inv",query.lastError().text());
+        else
+            query.exec("commit");
+
+        /*if(!consulta.exec("insert into detalle_factura values (detalle_factura_sec.nextval,'"+programa+"','"+factura+"','"+aux[0]+"','"+aux[1]+"','"+aux[2]+"','"+aux[3]+"','"+precio+"','0','"+subtotal+"','0')"))
             QMessageBox::critical(0,"Error Detalle Factura",consulta.lastError().text());
         else
-            consulta.exec("commit");
+            consulta.exec("commit");*/
 
-        if(tipo=="C")
+        if(tipo=="C") //CURSO
         {
             int nivel=0;
             cuota.setNum(1);
@@ -2191,14 +2232,14 @@ void procesos_caja::guardarFactura(QList<QList<QString> > items,QString factura,
                 consulta.exec("commit");
 
         }
-        else if(tipo=="M")
+        else if(tipo=="M") //MATRICULA
         {
             if(!consulta.exec("insert into ficha_pago values(ficha_pago_s.nextval,'1',to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','dd-mm-yyyy'),'"+subtotal+"','"+programa+"','"+factura+"','"+aux[2]+"','0','"+matricula+"','V','1')"))
                 QMessageBox::critical(0,"Error Ficha Pago",consulta.lastError().text());
             else
                 consulta.exec("commit");
         }
-        else if(tipo=="DP")
+        else if(tipo=="DP") //DIPLOMADO
         {
             if(!consulta.exec("update ficha_academica set status='H' where matricula='"+matricula+"'"))
                 QMessageBox::critical(0,"Error 6",consulta.lastError().text());
@@ -2240,7 +2281,7 @@ void procesos_caja::guardarFactura(QList<QList<QString> > items,QString factura,
                 }
             }
         }
-        else if(tipo=="PRE")
+        else if(tipo=="PRE") //PREINSCRIPCION
         {
             if(!consulta.exec("update ficha_academica set status='H' where matricula='"+matricula+"'"))
                 QMessageBox::critical(0,"Error 6",consulta.lastError().text());
@@ -2262,7 +2303,7 @@ void procesos_caja::guardarFactura(QList<QList<QString> > items,QString factura,
             else
                 consulta.exec("commit");
         }
-        else if(tipo=="CU")
+        else if(tipo=="CU") //CUOTA DIPLOMADO
         {
             consulta.exec("select ult_cuota,acumulado from ficha_pago_cfp where renglon =(select max(renglon) from ficha_pago_cfp where matricula='"+matricula+"')");
             while(consulta.next())
@@ -2275,7 +2316,7 @@ void procesos_caja::guardarFactura(QList<QList<QString> > items,QString factura,
             else
                 consulta.exec("commit");
         }
-        else if(tipo=="PC")
+        else if(tipo=="PC") //CERTIFICACION
         {
             double restante;
             QMessageBox::information(0,"","select pagado,restante from cohorte_certi where id='"+f_seccion+"'");
@@ -2290,7 +2331,7 @@ void procesos_caja::guardarFactura(QList<QList<QString> > items,QString factura,
             else
                 consulta.exec("commit");
         }
-        else if(tipo=="CI")
+        else if(tipo=="CI") //CUOTA IDIOMAS
         {
             consulta.exec("select cuota_o_libro,nivel from ficha_pago where renglon =(select max(renglon) from ficha_pago where matricula='"+matricula+"')");
             while(consulta.next())
@@ -2303,7 +2344,7 @@ void procesos_caja::guardarFactura(QList<QList<QString> > items,QString factura,
             else
                 consulta.exec("commit");
         }
-        else
+        else //RESTO: INVENTARIO SOLO AFECTA CDS, GUIAS, LIBROS
         {
             if(prog_academico=="6")
             {
@@ -2395,15 +2436,16 @@ void procesos_caja::guardarFactura(QList<QList<QString> > items,QString factura,
  *
  */
 
-QList<QString> procesos_caja::paginate(QList<QList<QString> > items,QList<QList<QString> > pago_items,QString razon, QString rif, QString telefono, QString dir, QString iva, QString piva, int fact, QString cedula_est, QString nombre_est, QString matricula, QString condicion)
+QList<QString> procesos_caja::paginate(QList<QList<QString> > items,QList<QList<QString> > pago_items,QString razon, QString rif, QString telefono, QString dir, QString iva, QString piva, int fact, QString cedula_est, QString nombre_est, QString matricula, QString condicion, int recibo)
 {
     int i;
     int pag=0;
     QList<QString> facturas;
     QList<QList<QString> > aux;
     QList<QList<QString> > new_items(items);
-    QString subtotal,total,factura;
+    QString subtotal,total,factura,reci;
     double suma=0;
+    reci.setNum(recibo);
 
     while(new_items.size()>7)
     {
@@ -2425,7 +2467,7 @@ QList<QString> procesos_caja::paginate(QList<QList<QString> > items,QList<QList<
         if(!total.contains(".",Qt::CaseInsensitive)&&!total.contains(",",Qt::CaseInsensitive))
             total= total+".00";
 
-        guardarFactura(aux,factura,rif,razon,total,piva,iva,dir,cedula_est,nombre_est,matricula);
+        guardarFactura(aux,factura,rif,razon,total,piva,iva,dir,cedula_est,nombre_est,matricula,reci);
         crearFactura(aux,pago_items,pag,razon,rif,telefono,dir,subtotal,iva,total,factura,false,cedula_est,nombre_est,condicion);
         fact++;
     }
@@ -2444,7 +2486,7 @@ QList<QString> procesos_caja::paginate(QList<QList<QString> > items,QList<QList<
         if(!total.contains(".",Qt::CaseInsensitive)&&!total.contains(",",Qt::CaseInsensitive))
             total= total+".00";
 
-        guardarFactura(new_items,factura,rif,razon,total,piva,iva,dir,cedula_est,nombre_est,matricula);
+        guardarFactura(new_items,factura,rif,razon,total,piva,iva,dir,cedula_est,nombre_est,matricula,reci);
     }
     crearFactura(new_items,pago_items,pag,razon,rif,telefono,dir,subtotal,iva,total,factura,false,cedula_est,nombre_est,condicion);
     return facturas;
@@ -2623,24 +2665,24 @@ void procesos_caja::prontoPago(QString cuota,QString diplo)
 
 void procesos_caja::imprimirFactura()
 {
-    int row,i,j;
-    QString pago,nfactura,nfactura2,monto2,cuota,tipo,cencos;
-    QString referencia,banco,diferencia,texto,tiva,ttotal,clase,cuenta,codban,ctacon;
+    int row,i,correlativo,recibo;
+    QString pago,nfactura,monto2,cencos;
+    QString banco,diferencia,texto,tiva,ttotal,clase,cuenta,codban,ctacon;
     double total,iva,monto,suma;
     QList<QString> facturas;
     suma=0;
 
     //crearConexionMysql(); //Para abrir bd de datapro
-    QSqlQuery query(db2);
+    QSqlQuery query(mysql);
     QSqlQuery consulta;
 
-    query.exec("select max(doc_numero) from dcdoccli");
+    query.exec("select max(doc_numero + 0) from dpdoccli");
     while(query.next())
     {
-        nfactura.setNum(consulta.value(0).toInt()+1);
+        nfactura.setNum(query.value(0).toInt()+1);
     }
 
-    consulta.exec("select cencos from companias where codigo='"+compania+"'");
+    consulta.exec("select cencos from companias where id='"+compania+"'");
     while(consulta.next())
     {
         cencos=consulta.value(0).toString();
@@ -2703,10 +2745,16 @@ void procesos_caja::imprimirFactura()
                 {
                     pago = consulta.value(0).toString();//buscar id segun nombre
                 }
-                consulta.exec("select id_banco from bancos where nombre='"+factura.f_tabla0->item(i,2)->text()+"'");
+                consulta.exec("select ctabco from bancos where nombre='"+factura.f_tabla0->item(i,2)->text()+"'");
                 while(consulta.next())
                 {
                     cuenta = consulta.value(0).toString();//buscar id segun nombre
+                }
+
+                query.exec("select max(rec_numero + 0) from dpreciboscli");
+                while(query.next())
+                {
+                    recibo = query.value(0).toInt() + 1;
                 }
 
                 monto2=factura.f_tabla0->item(i,4)->text();
@@ -2714,7 +2762,7 @@ void procesos_caja::imprimirFactura()
 
                 if((pago != "25")&&(prog_academico != "6"))
                 {
-                    query.exec("select bco_codigo,bco_cuenta from dpctabanco where bco_cuenta='"+cuenta+"'");
+                    query.exec("select bco_codigo,bco_cuenta from dpctabanco where bco_ctaban='"+cuenta+"'");
                     while(query.next())
                     {
                         codban=query.value(0).toString();
@@ -2727,19 +2775,26 @@ void procesos_caja::imprimirFactura()
                     }
 
                     //el deposito
-                    if(!query.exec("insert into dpctabancomov values ('"+cencos+"','"+banco+"','','000001','','','"+ctacon+"','','"+cuenta+"','cliente','factura','numero','','','hora','correlativo','REC','','DEP','','usuario','fecha','periodo','fecha','1','0','0','monto','monto','0','0','0','0','0','0')"))
+                    query.exec("select max(mob_numtra + 0) from dpctabancomov where mob_origen='REC' and mob_cuenta='"+cuenta+"' and mob_codbco='"+codban+"'");
+                    while(query.next())
                     {
-                        QMessageBox::critical(0,"Error Documentos Jupiter",query.lastError().text());
+                        correlativo=query.value(0).toInt()+1;
+                    }
+
+                    if(!query.exec("insert into dpctabancomov values (str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'"+QTime::currentTime().toString("hh:mm:ss")+"','"+tr("%1").arg(monto)+"','"+tr("%1").arg(monto)+"','DEP','Cliente: "+factura.f_nombre_5->text()+"','"+ctacon+"','0','000001','',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'"+codban+"','"+cuenta+"','"+factura.f_tabla0->item(i,3)->text()+"','REC','"+tr("%1").arg(recibo)+"','"+tr("%1").arg(correlativo)+"',str_to_date('','%d-%m-%Y'),'1','','',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'','0','0','0','"+cencos+"','','"+usuario+"','0','0','','','0','','0')"))
+                    {
+                        QMessageBox::critical(0,"Error Banco Mov",query.lastError().text());
                         return;
                     }
                     else
                         query.exec("commit");
                 }
             }
-            facturas= paginate(orderItems(),pagoItems(),factura.f_nombre_5->text(),factura.f_cedula_5->text(),factura.f_telf_3->text(),factura.f_direccion->text(),factura.f_iva_2->text(),factura.f_piva_2->text(),nfactura.toInt(),factura.f_cedula_4->text(),factura.f_nombre_4->text(),factura.f_matricula->text(),factura.f_condicion_2->text());
+            facturas= paginate(orderItems(),pagoItems(),factura.f_nombre_5->text(),factura.f_cedula_5->text(),factura.f_telf_3->text(),factura.f_direccion->text(),factura.f_iva_2->text(),factura.f_piva_2->text(),nfactura.toInt(),factura.f_cedula_4->text(),factura.f_nombre_4->text(),factura.f_matricula->text(),factura.f_condicion_2->text(),recibo);
 
             //Insert into dpreciboscli
-            if(!query.exec("insert into dpreciboscli values('','"+cencos+"','1','','cliente','Bs','sucursal','','','"+QDateTime::currentDateTime().toString("hh:mm:ss")+"','','recibo','FAV','P','fecha','1','0','monto','iva','0','0')"))
+            QMessageBox::information(0,"","insert into dpreciboscli values('"+tr("%1").arg(correlativo)+"','000001','"+factura.f_cedula_5->text()+"','000001','0',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'P','caja','0','Bs','"+QDateTime::currentDateTime().toString("hh:mm:ss")+"','1','FAV','','','','"+cencos+"','','"+tr("%1").arg(monto)+"','0','0')");
+            if(!query.exec("insert into dpreciboscli values('"+tr("%1").arg(recibo)+"','000001','"+factura.f_cedula_5->text()+"','000001','0',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'P','caja','0','Bs','"+QDateTime::currentDateTime().toString("hh:mm:ss")+"','1','FAV','','','','"+cencos+"','','"+tr("%1").arg(monto)+"','0','0')"))
                 QMessageBox::critical(0,"Error Recibo de Pago",query.lastError().text());
             else
                 query.exec("commit");
@@ -2772,7 +2827,7 @@ void procesos_caja::imprimirFactura()
     }
     else
     {
-        facturas=paginate(orderItems(),pagoItems(),factura.f_nombre_5->text(),factura.f_cedula_5->text(),factura.f_telf_3->text(),factura.f_direccion->text(),factura.f_iva_2->text(),factura.f_piva_2->text(),nfactura.toInt(),factura.f_cedula_4->text(),factura.f_nombre_4->text(),factura.f_matricula->text(),factura.f_condicion_2->text());
+        facturas=paginate(orderItems(),pagoItems(),factura.f_nombre_5->text(),factura.f_cedula_5->text(),factura.f_telf_3->text(),factura.f_direccion->text(),factura.f_iva_2->text(),factura.f_piva_2->text(),nfactura.toInt(),factura.f_cedula_4->text(),factura.f_nombre_4->text(),factura.f_matricula->text(),factura.f_condicion_2->text(),recibo);
 
         if(!consulta.exec("insert into cuentas_por_cobrar values('"+factura.f_cedula_5->text()+"','"+tr("%1").arg(monto)+"','','0',to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','dd-mm-yyyy'),'','"+nfactura+"','"+prog_academico+"')"))
             QMessageBox::critical(0,"Error Cuenta por Cobrar",consulta.lastError().text());
@@ -6532,8 +6587,9 @@ void procesos_caja::registroBancos()
     reg_bancos.tabla->setColumnWidth(0,50);
     reg_bancos.tabla->setColumnWidth(1,200);
     reg_bancos.tabla->setColumnWidth(2,50);
-    reg_bancos.tabla->setColumnWidth(2,50);
-    reg_bancos.tabla->setColumnWidth(2,50);
+    reg_bancos.tabla->setColumnWidth(3,50);
+    reg_bancos.tabla->setColumnWidth(4,50);
+    reg_bancos.tabla->setColumnWidth(5,100);
 
     llenarBancos();
 }
@@ -6559,6 +6615,8 @@ void procesos_caja::llenarBancos()
         reg_bancos.tabla->setItem(row,3,ni);
         ni = new QTableWidgetItem(consulta.value(5).toString());
         reg_bancos.tabla->setItem(row,4,ni);
+        ni = new QTableWidgetItem(consulta.value(6).toString());
+        reg_bancos.tabla->setItem(row,5,ni);
     }
 }
 
@@ -6591,6 +6649,8 @@ void procesos_caja::nuevoBanco()
     aux->addItem("N");
     combos->append(aux);
     reg_bancos.tabla->setCellWidget(row,4,combos->last());
+    lines->append(new QLineEdit());
+    reg_bancos.tabla->setCellWidget(row,5,lines->last());
 
     disconnect(container.botonGuardar,SIGNAL(clicked()),0,0);
     connect(container.botonGuardar,SIGNAL(clicked()),this,SLOT(guardarBanco()));
@@ -6629,6 +6689,8 @@ void procesos_caja::editarBanco(int row,int column)
     aux->setCurrentIndex(aux->findText(reg_bancos.tabla->item(row,4)->text()));
     combos->append(aux);
     reg_bancos.tabla->setCellWidget(row,4,combos->last());
+    lines->append(new QLineEdit(reg_bancos.tabla->item(row,5)->text()));
+    reg_bancos.tabla->setCellWidget(row,5,lines->last());
 
     disconnect(container.botonGuardar,SIGNAL(clicked()),0,0);
     connect(container.botonGuardar,SIGNAL(clicked()),this,SLOT(actualizarBanco()));
@@ -6641,7 +6703,7 @@ void procesos_caja::guardarBanco()
 {
     QSqlQuery consulta;
 
-    if(!consulta.exec("insert into bancos values ('"+lines->at(0)->text()+"','"+lines->at(1)->text()+"','','"+combos->at(0)->currentText()+"','"+combos->at(1)->currentText()+"','"+combos->at(2)->currentText()+"')"))
+    if(!consulta.exec("insert into bancos values ('"+lines->at(0)->text()+"','"+lines->at(1)->text()+"','','"+combos->at(0)->currentText()+"','"+combos->at(1)->currentText()+"','"+combos->at(2)->currentText()+"','"+lines->at(2)->text()+"')"))
         QMessageBox::critical(0,"Error Guardar Banco",consulta.lastError().text());
     else
     {
@@ -6657,7 +6719,7 @@ void procesos_caja::actualizarBanco()
 {
     QSqlQuery consulta;
 
-    if(!consulta.exec("update bancos set id_banco='"+lines->at(0)->text()+"',nombre= '"+lines->at(1)->text()+"',debito='"+combos->at(0)->currentText()+"',deposito='"+combos->at(1)->currentText()+"',credito='"+combos->at(2)->currentText()+"' where id_banco='"+updating+"'"))
+    if(!consulta.exec("update bancos set id_banco='"+lines->at(0)->text()+"',nombre= '"+lines->at(1)->text()+"',debito='"+combos->at(0)->currentText()+"',deposito='"+combos->at(1)->currentText()+"',credito='"+combos->at(2)->currentText()+"',ctabco='"+lines->at(2)->text()+"' where id_banco='"+updating+"'"))
         QMessageBox::critical(0,"Error Actualizar Banco",consulta.lastError().text());
     else
     {

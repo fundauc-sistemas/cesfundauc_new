@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'bancos.ui'
 **
-** Created: Fri 30. May 09:27:21 2014
-**      by: Qt User Interface Compiler version 4.8.1
+** Created: Wed 12. Nov 16:15:56 2014
+**      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -58,8 +58,8 @@ public:
         verticalLayout->addItem(verticalSpacer);
 
         tabla = new QTableWidget(bancos);
-        if (tabla->columnCount() < 5)
-            tabla->setColumnCount(5);
+        if (tabla->columnCount() < 6)
+            tabla->setColumnCount(6);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         tabla->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
@@ -70,6 +70,8 @@ public:
         tabla->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
         tabla->setHorizontalHeaderItem(4, __qtablewidgetitem4);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        tabla->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         tabla->setObjectName(QString::fromUtf8("tabla"));
         QFont font1;
         font1.setFamily(QString::fromUtf8("Segoe UI"));
@@ -98,6 +100,8 @@ public:
         ___qtablewidgetitem3->setText(QApplication::translate("bancos", "Deposito", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem4 = tabla->horizontalHeaderItem(4);
         ___qtablewidgetitem4->setText(QApplication::translate("bancos", "Credito", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem5 = tabla->horizontalHeaderItem(5);
+        ___qtablewidgetitem5->setText(QApplication::translate("bancos", "Cuenta", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

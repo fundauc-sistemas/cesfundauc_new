@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'procesos_caja.h'
 **
-** Created: Thu 11. Sep 16:40:54 2014
+** Created: Tue 18. Nov 16:31:02 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -86,45 +86,45 @@ static const uint qt_meta_data_procesos_caja[] = {
     1033,   14,   14,   14, 0x08,
     1058,   14,   14,   14, 0x08,
     1085,   14,   14,   14, 0x08,
-    1174, 1101,   14,   14, 0x08,
-    1293,   14,   14,   14, 0x08,
+    1181, 1101,   14,   14, 0x08,
     1308,   14,   14,   14, 0x08,
-    1325,   14,   14,   14, 0x08,
-    1341,   14,   14,   14, 0x08,
-    1363,   14,   14,   14, 0x08,
-    1401, 1390,   14,   14, 0x08,
-    1431,   14,   14,   14, 0x08,
+    1323,   14,   14,   14, 0x08,
+    1340,   14,   14,   14, 0x08,
+    1356,   14,   14,   14, 0x08,
+    1378,   14,   14,   14, 0x08,
+    1416, 1405,   14,   14, 0x08,
     1446,   14,   14,   14, 0x08,
-    1478,   14,   14,   14, 0x08,
-    1491, 1390,   14,   14, 0x08,
-    1512,   14,   14,   14, 0x08,
+    1461,   14,   14,   14, 0x08,
+    1493,   14,   14,   14, 0x08,
+    1506, 1405,   14,   14, 0x08,
     1527,   14,   14,   14, 0x08,
-    1545, 1390,   14,   14, 0x08,
-    1566,   84,   14,   14, 0x08,
-    1593, 1390,   14,   14, 0x08,
-    1619, 1390,   14,   14, 0x08,
-    1640, 1390,   14,   14, 0x08,
-    1663,   84,   14,   14, 0x08,
-    1688,   84,   14,   14, 0x08,
-    1714,   14,   14,   14, 0x08,
-    1733, 1390,   14,   14, 0x08,
-    1761, 1755,   14,   14, 0x08,
-    1779, 1755,   14,   14, 0x08,
-    1797, 1755,   14,   14, 0x08,
-    1814, 1755,   14,   14, 0x08,
-    1831, 1755,   14,   14, 0x08,
-    1846, 1755,   14,   14, 0x08,
-    1868, 1755,   14,   14, 0x08,
-    1887, 1755,   14,   14, 0x08,
-    1909, 1755,   14,   14, 0x08,
-    1929, 1755,   14,   14, 0x08,
-    1952, 1755,   14,   14, 0x08,
-    1971, 1755,   14,   14, 0x08,
-    1991,   14,   14,   14, 0x08,
-    2007,   14,   14,   14, 0x08,
-    2025,   14,   14,   14, 0x08,
-    2042, 1390,   14,   14, 0x08,
-    2065,   14,   14,   14, 0x08,
+    1542,   14,   14,   14, 0x08,
+    1560, 1405,   14,   14, 0x08,
+    1581,   84,   14,   14, 0x08,
+    1608, 1405,   14,   14, 0x08,
+    1634, 1405,   14,   14, 0x08,
+    1655, 1405,   14,   14, 0x08,
+    1678,   84,   14,   14, 0x08,
+    1703,   84,   14,   14, 0x08,
+    1729,   14,   14,   14, 0x08,
+    1748, 1405,   14,   14, 0x08,
+    1776, 1770,   14,   14, 0x08,
+    1794, 1770,   14,   14, 0x08,
+    1812, 1770,   14,   14, 0x08,
+    1829, 1770,   14,   14, 0x08,
+    1846, 1770,   14,   14, 0x08,
+    1861, 1770,   14,   14, 0x08,
+    1883, 1770,   14,   14, 0x08,
+    1902, 1770,   14,   14, 0x08,
+    1924, 1770,   14,   14, 0x08,
+    1944, 1770,   14,   14, 0x08,
+    1967, 1770,   14,   14, 0x08,
+    1986, 1770,   14,   14, 0x08,
+    2006,   14,   14,   14, 0x08,
+    2022,   14,   14,   14, 0x08,
+    2040,   14,   14,   14, 0x08,
+    2057, 1405,   14,   14, 0x08,
+    2080,   14,   14,   14, 0x08,
 
        0        // eod
 };
@@ -162,9 +162,9 @@ static const char qt_meta_stringdata_procesos_caja[] = {
     "setPrecioCuota2(QString)\0"
     "setPrecioMaterial(QString)\0generarValija()\0"
     "items,factura,cedula,nombre,monto,piva,iva,dir,cedula2,nombre2,matricu"
-    "la\0"
+    "la,recibo\0"
     "guardarFactura(QList<QList<QString> >,QString,QString,QString,QString,"
-    "QString,QString,QString,QString,QString,QString)\0"
+    "QString,QString,QString,QString,QString,QString,QString)\0"
     "buscarCuenta()\0procesarCuenta()\0"
     "guardarCodigo()\0nuevoCodigoContable()\0"
     "actualizarCodigoContable()\0row,column\0"
@@ -250,7 +250,7 @@ void procesos_caja::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 52: _t->setPrecioCuota2((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 53: _t->setPrecioMaterial((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 54: _t->generarValija(); break;
-        case 55: _t->guardarFactura((*reinterpret_cast< QList<QList<QString> >(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3])),(*reinterpret_cast< QString(*)>(_a[4])),(*reinterpret_cast< QString(*)>(_a[5])),(*reinterpret_cast< QString(*)>(_a[6])),(*reinterpret_cast< QString(*)>(_a[7])),(*reinterpret_cast< QString(*)>(_a[8])),(*reinterpret_cast< QString(*)>(_a[9])),(*reinterpret_cast< QString(*)>(_a[10])),(*reinterpret_cast< QString(*)>(_a[11]))); break;
+        case 55: _t->guardarFactura((*reinterpret_cast< QList<QList<QString> >(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3])),(*reinterpret_cast< QString(*)>(_a[4])),(*reinterpret_cast< QString(*)>(_a[5])),(*reinterpret_cast< QString(*)>(_a[6])),(*reinterpret_cast< QString(*)>(_a[7])),(*reinterpret_cast< QString(*)>(_a[8])),(*reinterpret_cast< QString(*)>(_a[9])),(*reinterpret_cast< QString(*)>(_a[10])),(*reinterpret_cast< QString(*)>(_a[11])),(*reinterpret_cast< QString(*)>(_a[12]))); break;
         case 56: _t->buscarCuenta(); break;
         case 57: _t->procesarCuenta(); break;
         case 58: _t->guardarCodigo(); break;

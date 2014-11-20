@@ -98,7 +98,7 @@ void interfaz::actionsCaja()
     ui.menuReportes->addAction(actionCierre_Comercializables);
     ui.menuReportes->setEnabled(true);
 
-    caja = new procesos_caja(programa,username,db,this);
+    caja = new procesos_caja(programa,username,db,db2,this);
 }
 
 
@@ -333,7 +333,7 @@ void interfaz::actionsCtrlEst()
     ui.menuReportes->addMenu(menuListados);
     ui.menuReportes->addMenu(menuEstadisticas);
     ui.menuReportes->setEnabled(true);
-    ces = new procesos_ces(programa,programa_academico,username,db,this);
+    ces = new procesos_ces(programa,programa_academico,username,db,db2,this);
 }
 
 

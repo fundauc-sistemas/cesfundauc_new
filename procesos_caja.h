@@ -49,7 +49,7 @@ class procesos_caja : public QWidget
     Q_OBJECT
 
     public:
-        procesos_caja(QString prog, QString user, QSqlDatabase db, QWidget *parent = 0);
+        procesos_caja(QString prog, QString user, QSqlDatabase db, QSqlDatabase db2, QWidget *parent = 0);
         ~procesos_caja();
 
         Ui::ces container;
@@ -146,7 +146,7 @@ class procesos_caja : public QWidget
         void setPrecioCuota2(const QString);
         void setPrecioMaterial(const QString);
         void generarValija();
-        void guardarFactura(QList<QList<QString> > items,QString factura,QString cedula,QString nombre,QString monto,QString piva,QString iva,QString dir,QString cedula2,QString nombre2,QString matricula);
+        void guardarFactura(QList<QList<QString> > items,QString factura,QString cedula,QString nombre,QString monto,QString piva,QString iva,QString dir,QString cedula2,QString nombre2,QString matricula,QString recibo);
         void buscarCuenta();
         void procesarCuenta();
         void guardarCodigo();
@@ -226,7 +226,7 @@ class procesos_caja : public QWidget
         QList<int> *rows;
         QSqlDatabase database;
         NCReport *report;
-        QSqlDatabase db2;
+        QSqlDatabase mysql;
 
         void facturaSetup();
         void depositoSetup();
@@ -247,7 +247,7 @@ class procesos_caja : public QWidget
         bool duplicarCohorte(QString s);
 
 
-        QList<QString> paginate(QList<QList<QString> > items,QList<QList<QString> > pago_items,QString razon, QString rif, QString telefono, QString dir, QString iva, QString piva, int fact, QString cedula_est, QString nombre_est, QString matricula, QString condicion);
+        QList<QString> paginate(QList<QList<QString> > items,QList<QList<QString> > pago_items,QString razon, QString rif, QString telefono, QString dir, QString iva, QString piva, int fact, QString cedula_est, QString nombre_est, QString matricula, QString condicion, int recibo);
         void crearFactura(QList<QList<QString> > items,QList<QList<QString> > pago_items,int pagina, QString nombre, QString cedula, QString telefono, QString dir, QString subtotal, QString iva, QString total, QString fact, bool copia, QString cedula_est, QString nombre_est, QString condicion);
 };
 

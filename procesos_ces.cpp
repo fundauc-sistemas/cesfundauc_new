@@ -7,13 +7,14 @@
 #include "procesos_ces.h"
 
 
-procesos_ces::procesos_ces(QString programa,QString academico,QString user,QSqlDatabase db,QWidget *parent): QWidget(parent)
+procesos_ces::procesos_ces(QString programa,QString academico,QString user,QSqlDatabase db,QSqlDatabase db2,QWidget *parent): QWidget(parent)
 {
     container.setupUi(this);
     prog=programa;
     usuario=user;
     report= new NCReport();
     prog_academico=academico;
+    mysql=db2;
 }
 
 
@@ -399,15 +400,14 @@ void procesos_ces::registroEmpresas(QString rif, QString matricula)
 
 void procesos_ces::nuevaEmpresa()
 {
-    QSqlQuery consulta,query;
-    //QSqlQuery query(db2);
+    QSqlQuery consulta;
+    QSqlQuery query(mysql);
 
-
-    //if(!consulta.exec("insert into empresas values('"+reg_empresas.rif->text()+"','"+reg_empresas.razon->text()+"','"+reg_empresas.dir->text()+"','"+reg_empresas.telefono->text()+"')"))
-    if(!query.exec("insert into dpclientes values('','1','','E','','','','0','1','','"+reg_empresas.rif->text()+"','','','','','N','N','','','"+reg_empresas.dir->text()+"','"+reg_empresas.dir2->text()+"','','','"+reg_empresas.email->text()+"','N','-Indefinido','','','','','A','0','N','','','-Indefinido','"+reg_empresas.razon->text()+"','','','Venezuela','-Indefinido','N','','S','','A','"+reg_empresas.telefono->text()+"','','','','','','N','N','"+usuario+"','','N','','','currentdate','','','','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0')"))
-        QMessageBox::critical(0,"Error Nuevo Cliente",consulta.lastError().text());
+    if(!query.exec("insert into dpclientes values('11212','"+reg_empresas.rif->text()+"','000001','"+reg_empresas.razon->text()+"','"+reg_empresas.dir->text()+"','"+reg_empresas.dir2->text()+"','','','','"+reg_empresas.telefono->text()+"','','','','','','0','0','0','0','0','A','','','E','','',str_to_date('"+QDate::currentDate().toString("dd-MM-yyyy")+"','%d-%m-%Y'),'"+reg_empresas.rif->text()+"','','N','000001','"+reg_empresas.email->text()+"','N','0','A','','N','S','N','N','N','','Venezuela','-Indefinido','-Indefinido','-Indefinido','','','','','00-00-0000','00-00-0000','0','0','0','0','0','0','0','0','0','0','0','','00-00-0000','','00-00-0000','','','','','','0','0','00-00-0000','N','','0','','','','','N','"+usuario+"','0')"))
+        QMessageBox::critical(0,"Error Nuevo Cliente",query.lastError().text());
     else
     {
+        query.exec("commit");
         if(!consulta.exec("update estudiante set cedula_rep='"+reg_empresas.rif->text()+"' where matricula='"+reg_empresas.matricula->text()+"'"))
             QMessageBox::critical(0,"Error",consulta.lastError().text());
         else

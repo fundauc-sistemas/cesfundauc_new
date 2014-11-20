@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'procesos_ces.h'
 **
-** Created: Thu 11. Sep 16:33:01 2014
+** Created: Fri 12. Sep 12:03:55 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!

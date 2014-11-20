@@ -86,6 +86,11 @@ color: rgb(00,56,147);</string>
        <string>Credito</string>
       </property>
      </column>
+     <column>
+      <property name="text">
+       <string>Cuenta</string>
+      </property>
+     </column>
     </widget>
    </item>
   </layout>
